@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7398501562587885080}
   - component: {fileID: 8845422730449246494}
   m_Layer: 0
-  m_Name: archerArrow
+  m_Name: ArcherArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class BuildingController : MonoBehaviour
 {
     public static BuildingController current;
 
-    public BoundsInt buildingArea;
+    [HideInInspector] public BoundsInt buildingArea;
     public GridLayout gridLayout;
     private Grid grid;
 
@@ -19,42 +21,37 @@ public class BuildingController : MonoBehaviour
     private Building buildingToPlace;
     private GameObject buildingBackUp;
     private BoundsInt prevArea;
-
+    private UIManager UIM;
     private static int groundLayer;
     private bool buildingInstanciated = false;
     private bool buildingMode = false;
+    private SelectionController SC;
 
     public void Awake()
     {
         current = this;
         grid = gridLayout.gameObject.GetComponent<Grid>();
         groundLayer = LayerMask.GetMask("Ground");
-    }
-    public void FixedUpdate()
-    {
-        //Avoid null reference error when clicking build button
-        if (!buildingToPlace)
-        {
-            return;
-        }
-
-        buildingInstanciated = true;
+        UIM = FindObjectOfType<UIManager>();
+        SC = FindObjectOfType<SelectionController>();
     }
 
     public void Update()
     {
-        if (!buildingInstanciated)
-        {
-            return;
-        }
-
         if(buildingMode)
         {
             if (CanBePlaced()) //EFICIENCIA (?)
             {
-                if (Input.GetMouseButtonUp(0))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    buildingToPlace.Place();
+                    StartCoroutine(buildingToPlace.GetComponent<ProgressBar>().StartBuildingTimer(buildingToPlace.gameObject, false));
+
+                    if (buildingToPlace.data.buildingName == "Wall")
+                        buildingToPlace.GetComponent<Wall>().BuildWall();
+
+                    buildingToPlace.SpendConstructionResources();
+                    buildingToPlace.ChangeMatToOnConstruction();
+
                     ClearArea();
                     TakeArea();
 
@@ -76,6 +73,7 @@ public class BuildingController : MonoBehaviour
             {
                 ClearArea();
                 Destroy(buildingToPlace.gameObject);
+                UIM.ShowHideQuantity(false);
                 buildingInstanciated = false;
                 buildingMode = false;
                 gridLayout.gameObject.SetActive(false);
@@ -114,7 +112,13 @@ public class BuildingController : MonoBehaviour
         }
     }
 
-    
+    public void BuildingLevelUp()
+    {
+        SC.selectedBuilding.SpendConstructionResources();
+        StartCoroutine(SC.selectedBuilding.GetComponent<ProgressBar>().StartBuildingTimer(SC.selectedBuilding.gameObject, true));
+        SC.selectedBuilding.ChangeMatToOnConstruction();
+    }
+
     private bool CanBePlaced()
     {
         ClearArea();

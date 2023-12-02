@@ -21,19 +21,19 @@ public class ResourcesController : MonoBehaviour
     public float stoneGainTime;
     public float metalGainTime;
 
-    [HideInInspector] public int goldGain;
-    [HideInInspector] public int foodGain;
-    [HideInInspector] public int woodGain;
-    [HideInInspector] public int stoneGain;
-    [HideInInspector] public int metalGain;
-    [HideInInspector] public int maxPopulation;
+    private int gold = 1000;
+    private int food = 1000;
+    private int wood = 1000;
+    private int stone = 1000;
+    private int metal = 1000;
+    private int population = 0;
 
-    private int gold;
-    private int food;
-    private int wood;
-    private int stone;
-    private int metal;
-    private int population;
+    private int goldGain;
+    private int foodGain;
+    private int woodGain;
+    private int stoneGain;
+    private int metalGain;
+    private int maxPopulation;
 
     private float goldTimer;
     private float foodTimer;
@@ -41,6 +41,16 @@ public class ResourcesController : MonoBehaviour
     private float stoneTimer;
     private float metalTimer;
 
+    private void Start()
+    {
+        UpdateText(goldTxt, gold);
+        UpdateText(foodTxt, food);
+        UpdateText(woodTxt, wood);
+        UpdateText(stoneTxt, stone);
+        UpdateText(metalTxt, metal);
+        UpdateText(populationTxt, population);
+        AddMaxPopulation(50);
+    }
 
     private void Update()
     {
@@ -106,13 +116,41 @@ public class ResourcesController : MonoBehaviour
         }
     }
 
+    public void AddResourcesGain(int goldGain, int foodGain, int woodGain, int stoneGain, int metalGain, int maxPopulation)
+    {
+        this.goldGain += goldGain;
+        this.foodGain += foodGain;
+        this.woodGain += woodGain;
+        this.stoneGain += stoneGain;
+        this.metalGain += metalGain;
+        AddMaxPopulation(maxPopulation);
+    }
+
+    public void SubstractResources(int gold, int food, int wood, int stone, int metal)
+    {
+        this.gold -= gold;
+        UpdateText(goldTxt, this.gold);
+
+        this.food -= food;
+        UpdateText(foodTxt, this.food);
+
+        this.wood -= wood;
+        UpdateText(woodTxt, this.wood);
+
+        this.stone -= stone;
+        UpdateText(stoneTxt, this.stone);
+
+        this.metal -= metal;
+        UpdateText(metalTxt, this.metal);
+    }
+
     public void AddPopulation(int population)
     {
         this.population += population;
         UpdateText(populationTxt, this.population);
     }
 
-    public void AddMaxPopulation(int maxPopulation)
+    private void AddMaxPopulation(int maxPopulation)
     {
         this.maxPopulation += maxPopulation;
         maxPopulationTxt.text = " / " + this.maxPopulation;

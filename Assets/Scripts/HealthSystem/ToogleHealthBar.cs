@@ -15,7 +15,7 @@ public class ToogleHealthBar : MonoBehaviour
                 objectOnRay.GetComponent<Health>().hpBar.SetActive(false);
             } 
 
-            if (hitInfo.collider.GetComponent<Health>())
+            if (hitInfo.collider.GetComponent<Health>() && hitInfo.collider.GetComponent<Health>().enabled == true)
             {
                 objectOnRay = hitInfo.collider.gameObject;
                 hitInfo.collider.GetComponent<Health>().hpBar.SetActive(true);

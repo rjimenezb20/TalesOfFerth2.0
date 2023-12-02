@@ -6,28 +6,32 @@ public class Health : MonoBehaviour
     public float destroyTime;
     public GameObject hpBar;
     public SpriteRenderer hpBarSprite;
-
+    [HideInInspector] public int HP;
+    [HideInInspector] public int MaxHP;
     private Camera mainCamera;
-    private int MaxHP;
-    public int HP;
     private Vector3 initialScale;
 
     void Start()
     {
-        if (GetComponent<Enemy>()) 
+        //StartCoroutine(a());
+
+        if (gameObject.tag == "Enemy") 
         {
-            MaxHP = GetComponent<Enemy>().data.healthPoints;
-            HP = GetComponent<Enemy>().data.healthPoints;
+            Enemy enemy = gameObject.GetComponent<Enemy>();
+            MaxHP = enemy.data.healthPoints;
+            HP = enemy.data.healthPoints;
         }
-        else if (GetComponent<Unit>())
+        else if (gameObject.tag == "Unit")
         {
-            MaxHP = GetComponent<Unit>().data.healthPoints;
-            HP = GetComponent<Unit>().data.healthPoints;
+            Unit unit = gameObject.GetComponent<Unit>();
+            MaxHP = unit.data.healthPoints;
+            HP = unit.data.healthPoints;
         }
-        else if (GetComponent<Building>())
+        else if (gameObject.tag == "Building")
         {
-            MaxHP = GetComponent<Building>().data.healthPoints;
-            HP = GetComponent<Building>().data.healthPoints;
+            Building building = gameObject.GetComponent<Building>();
+            MaxHP = building.data.healthPoints1;
+            HP = building.data.healthPoints1;
         }
         
         mainCamera = Camera.main;
@@ -61,12 +65,24 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this.gameObject, destroyTime);
+        GetComponent<Animator>().Play("Death");
     }
 
     private void UpdateHealBarSprite()
     {
         hpBarSprite.transform.localScale = new Vector3(initialScale.x * HP / MaxHP, hpBarSprite.transform.localScale.y, hpBarSprite.transform.localScale.z);
         hpBarSprite.transform.localPosition = new Vector3(-.85f + hpBarSprite.transform.localScale.x * 0.85f, hpBarSprite.transform.localPosition.y, hpBarSprite.transform.localPosition.z);
+    }
+
+    public void Destroy()
+    {
+        Destroy(this.gameObject, destroyTime);
+    }
+
+    IEnumerator a ()
+    {
+        yield return new WaitForSeconds(2);
+        ReceiveDamage(100);
+        StartCoroutine(a());
     }
 }

@@ -11,10 +11,10 @@ public class UnitAttack : MonoBehaviour
     public float attackRange = 5f;
     public float timeBetweenAttacks = 5f;
     public float rotationToEnemySpeed = 1f;
-    public bool attackOrder = false;
+    [HideInInspector] public bool attackOrder = false;
     [HideInInspector] public Transform target;
+    [HideInInspector] public int attackDamage;
 
-    private int attackDamage;
     private UnitMovement unitMovement;
     private Animator animator;
     private AttackRangeSystem attackRangeSystem;
@@ -42,13 +42,17 @@ public class UnitAttack : MonoBehaviour
             
             if (target != null)
             {
-                if (!unitMovement.movingOrder)
+                if (!unitMovement.movingOrder || attackOrder)
                 {
                     if (CheckDistanceToEnemy(target) <= attackRange) //On attack range
                     {
-                        unitMovement.agent.isStopped = true;
+                        if (unitMovement.agent.enabled)
+                            if(!unitMovement.agent.isStopped)
+                                unitMovement.agent.isStopped = true;
 
-                        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position), rotationToEnemySpeed);
+                        Vector3 directionToTarget = target.position - transform.position;
+                        directionToTarget.y = 0;
+                        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(directionToTarget), rotationToEnemySpeed / 100);
 
                         //Atack timer
                         timer += Time.deltaTime % 60;

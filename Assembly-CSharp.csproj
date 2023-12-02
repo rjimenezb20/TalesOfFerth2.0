@@ -58,36 +58,72 @@
     <Analyzer Include="E:\Unity3D\2022.2.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Buildings\Wall.cs" />
     <Compile Include="Assets\Scripts\RangeAttackSystem\AttackRangeSystem.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Scripts\FogOfWar\FogCoverable.cs" />
     <Compile Include="Assets\Scripts\Units\UnitMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\SnapshotShaders\Scenes\Scripts\Rotate.cs" />
+    <Compile Include="Assets\Scripts\Tools\UnitSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\UI\DayTimer.cs" />
+    <Compile Include="Assets\SnapshotShaders\Scripts\SnapshotCanvas.cs" />
+    <Compile Include="Assets\Scripts\UI\ButtonEvents.cs" />
+    <Compile Include="Assets\Scripts\FogOfWar\ForceAspect.cs" />
+    <Compile Include="Assets\Scripts\FogOfWar\FogProjector.cs" />
     <Compile Include="Assets\Scripts\Units\UnitsController.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyData.cs" />
-    <Compile Include="Assets\Scripts\Buildings\House.cs" />
-    <Compile Include="Assets\Scripts\Buildings\IBuildingLevel.cs" />
+    <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
+    <Compile Include="Assets\SnapshotShaders\Scripts\SnapshotFilter.cs" />
+    <Compile Include="Assets\Scripts\FogOfWar\FieldOfView.cs" />
+    <Compile Include="Assets\Scripts\UI\CursorChange.cs" />
+    <Compile Include="Assets\Scripts\Units\UnitsCreation.cs" />
     <Compile Include="Assets\Scripts\BuildingSystem\BuildingController.cs" />
     <Compile Include="Assets\Scripts\Units\Unit.cs" />
+    <Compile Include="Assets\Scripts\Proyectiles\ArrowProyectile.cs" />
     <Compile Include="Assets\Scripts\HealthSystem\ToogleHealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthSystem\Health.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Units\Mage.cs" />
+    <Compile Include="Assets\Scripts\Proyectiles\MagicProyectile.cs" />
     <Compile Include="Assets\Scripts\Units\Archer.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Buildings\WallDoor.cs" />
     <Compile Include="Assets\Scripts\Data\BuildingData.cs" />
-    <Compile Include="Assets\Scripts\Proyectiles\Proyectile.cs" />
+    <Compile Include="Assets\SnapshotShaders\Scenes\Scripts\Hover.cs" />
+    <Compile Include="Assets\Scripts\Tools\LookAt.cs" />
+    <Compile Include="Assets\SnapshotShaders\Scripts\SnapshotMode.cs" />
+    <Compile Include="Assets\Scripts\Tools\Map3DPaint.cs" />
+    <Compile Include="Assets\SnapshotShaders\Scenes\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Units\UnitAttack.cs" />
+    <Compile Include="Assets\Scripts\Buildings\Barracks.cs" />
     <Compile Include="Assets\Scripts\BuildingSystem\Building.cs" />
     <Compile Include="Assets\Scripts\Buildings\Turret.cs" />
+    <Compile Include="Assets\Scripts\FogOfWar\Solidify.cs" />
     <Compile Include="Assets\Scripts\Resources\ResourcesController.cs" />
     <Compile Include="Assets\Scripts\Data\UnitData.cs" />
     <Compile Include="Assets\Scripts\Selection\SelectionController.cs" />
+    <Compile Include="Assets\Scripts\Buildings\Sawmill.cs" />
+    <Compile Include="Assets\Scripts\Buildings\WatchTower.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\SnapshotShaders\Shaders\Silhouette.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\SnapshotShaders\Shaders\Greyscale.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\Sepia.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\Base.shader" />
+    <None Include="Assets\Shaders\FogOfWar\ProjectorAdditiveTint.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\EdgeBlur.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\Bloom.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\CRTScreen.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Shaders\FogOfWar\MobileBlur.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\PixelSNES.shader" />
+    <None Include="Assets\Shaders\FogOfWar\ProjectorFogOfWar.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\UI\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -95,15 +131,23 @@
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\SnapshotShaders\Shaders\Neon.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Models\Tree + MushroomHouse\StandardDoubleSided.shader" />
+    <None Include="Assets\Models\Elfs\Buildings\models\anim_frame.txt" />
     <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\SnapshotShaders\Shaders\EdgeDetect.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\PixelGB.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\Pride.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\UI\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\SnapshotShaders\Shaders\PixelNES.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\Painting.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\SnapshotShaders\Shaders\GaussianBlur.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -721,6 +765,9 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>E:\Unity3D\2022.2.15f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
@@ -742,14 +789,14 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
@@ -765,6 +812,9 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

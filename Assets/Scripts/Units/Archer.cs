@@ -10,10 +10,9 @@ public class Archer : MonoBehaviour
 
     public void ShootArrow()
     {
-        Archer archer = GetComponent<Archer>();
-        GameObject instanciatedArrow = Instantiate(archer.arrow, archer.shootPoint.position, Quaternion.identity);
+        GameObject instanciatedArrow = Instantiate(arrow, shootPoint.position, Quaternion.identity);
 
         if (GetComponent<UnitAttack>().target != null)
-            instanciatedArrow.GetComponent<Proyectile>().SetTarget(GetComponent<UnitAttack>().target);
+            instanciatedArrow.GetComponent<ArrowProyectile>().SetTarget(GetComponent<UnitAttack>().target);
     }
 }

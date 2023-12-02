@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Turret : MonoBehaviour, IBuildingLevel
+public class Turret : MonoBehaviour
 {
     public GameObject proyectile;
     public Transform spawnPoint;
@@ -31,26 +31,11 @@ public class Turret : MonoBehaviour, IBuildingLevel
                 if (timer >= timeBetweenAttacks)
                 {
                     GameObject newProyectile = Instantiate(proyectile, spawnPoint.position, Quaternion.identity);
-                    newProyectile.GetComponent<Proyectile>().SetTarget(target);
+                    newProyectile.GetComponent<ArrowProyectile>().SetTarget(target);
                     timer = 0;
                 }
             }
             yield return null;
         }
-    }
-
-    public void Level1()
-    {
-        
-    }
-
-    public void Level2()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Level3()
-    {
-        throw new System.NotImplementedException();
     }
 }

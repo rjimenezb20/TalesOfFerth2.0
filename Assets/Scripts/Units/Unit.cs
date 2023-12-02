@@ -36,5 +36,5 @@ public class Unit : MonoBehaviour
             if (SelectionController.selection.Contains(camPos, true))
                 SC.AddSelectedUnit(this);
         }
-    }   
+    }
 }

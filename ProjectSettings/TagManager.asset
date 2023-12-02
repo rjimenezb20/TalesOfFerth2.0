@@ -8,6 +8,12 @@ TagManager:
   - Environment
   - Enemy
   - Building
+  - Tree
+  - Quantity
+  - UnitProgressBar
+  - Vision
+  - WallPole
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -21,8 +27,8 @@ TagManager:
   - Ground
   - Enemy
   - Building
-  - 
-  - 
+  - Resources
+  - Vision
   - 
   - 
   - 

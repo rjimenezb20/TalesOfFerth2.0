@@ -1264,10 +1264,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.7
+  m_Height: 1.7675583
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.87705123, z: 0}
 --- !u!54 &4615681378326866451
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   destroyTime: 0
   hpBar: {fileID: 5783481655132331878}
   hpBarSprite: {fileID: 1648087005332281387}
-  HP: 100
+  HP: 1000
 --- !u!1 &5282489784041879541
 GameObject:
   m_ObjectHideFlags: 0

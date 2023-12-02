@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2450c94e41cb0341b48472569774ac9, type: 3}
   m_Name: SoldierData
   m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 633a17af40baec349b353c0fa560a6c2, type: 3}
   unitName: Soldier
-  healthPoints: 100
+  description: Melee Unit
+  healthPoints: 200
   attackDamage: 10
+  attackRange: 10
+  creationTime: 5
+  goldCost: 100
+  foodCost: 50
+  woodCost: 0
+  stoneCost: 0
+  metalCost: 10
+  populationCost: 0

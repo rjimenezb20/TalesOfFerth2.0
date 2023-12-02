@@ -12,15 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618c86918faa7a449bc73797e84997bd, type: 3}
   m_Name: SmithData
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
   buildingName: Smith
-  healthPoints: 100
-  goldGain: 0
-  foodGain: 0
-  woodGain: 0
-  stoneGain: 0
-  metalGain: 0
-  populationGain: 0
-  level2Health: 0
-  level2ResourceIncrease: 0
-  level3Health: 0
-  level3ResourceIncrease: 0
+  description: 
+  timeToBuild: 6
+  timeToUpdate: 3
+  healthPoints1: 100
+  goldCost1: 200
+  foodCost1: 0
+  woodCost1: 150
+  stoneCost1: 0
+  metalCost1: 50
+  goldGain1: 0
+  foodGain1: 0
+  woodGain1: 0
+  stoneGain1: 0
+  metalGain1: 0
+  populationGain1: 0
+  healthPoints2: 0
+  goldCost2: 0
+  foodCost2: 0
+  woodCost2: 0
+  stoneCost2: 0
+  metalCost2: 0
+  goldGain2: 0
+  foodGain2: 0
+  woodGain2: 0
+  stoneGain2: 0
+  metalGain2: 0
+  populationGain2: 0
+  healthPoints3: 0
+  goldCost3: 0
+  foodCost3: 0
+  woodCost3: 0
+  stoneCost3: 0
+  metalCost3: 0
+  goldGain3: 0
+  foodGain3: 0
+  woodGain3: 0
+  stoneGain3: 0
+  metalGain3: 0
+  populationGain3: 0
