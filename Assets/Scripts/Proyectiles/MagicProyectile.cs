@@ -7,10 +7,16 @@ public class MagicProyectile : MonoBehaviour
     public float proyectileSpeed = 1;
     public float destroyTime = 2;
     public int attackDamage = 20;
+    public GameObject hitParticle;
 
-    private float damageRange = 1.5f;
+    private float damageRange = 1.1f;
     private Transform target;
     private bool throwed = false;
+
+    private void Start()
+    {
+        StartCoroutine(DestroyProyectile());
+    }
 
     void Update()
     {
@@ -28,6 +34,7 @@ public class MagicProyectile : MonoBehaviour
             if (Vector3.Distance(transform.position, target.transform.position) < damageRange)
             {
                 target.GetComponent<Health>().ReceiveDamage(attackDamage);
+                Instantiate(hitParticle, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
     }
@@ -36,7 +43,6 @@ public class MagicProyectile : MonoBehaviour
     {
         this.target = target;
         throwed = true;
-        StartCoroutine(DestroyProyectile());
     }
 
     IEnumerator DestroyProyectile()

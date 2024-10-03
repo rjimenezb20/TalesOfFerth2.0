@@ -12,44 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618c86918faa7a449bc73797e84997bd, type: 3}
   m_Name: WallData
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 51f819cbaba86d04e81c99f5f176d3ef, type: 3}
+  image: {fileID: 21300000, guid: b72ee41738d18b74ba4aca954ab4dfbd, type: 3}
   buildingName: Wall
-  description: Protects you from enemeis not letting them go throuth
-  timeToBuild: 3
+  description: Protects you from enemeis not letting them go through
+  timeToBuild: 5
   timeToUpdate: 0
-  healthPoints1: 100
-  goldCost1: 25
-  foodCost1: 0
-  woodCost1: 100
-  stoneCost1: 0
-  metalCost1: 0
-  goldGain1: 0
-  foodGain1: 0
-  woodGain1: 0
-  stoneGain1: 0
-  metalGain1: 0
-  populationGain1: 0
-  healthPoints2: 0
-  goldCost2: 0
-  foodCost2: 0
-  woodCost2: 0
-  stoneCost2: 0
-  metalCost2: 0
-  goldGain2: 0
-  foodGain2: 0
-  woodGain2: 0
-  stoneGain2: 0
-  metalGain2: 0
-  populationGain2: 0
-  healthPoints3: 0
-  goldCost3: 0
-  foodCost3: 0
-  woodCost3: 0
-  stoneCost3: 0
-  metalCost3: 0
-  goldGain3: 0
-  foodGain3: 0
-  woodGain3: 0
-  stoneGain3: 0
-  metalGain3: 0
-  populationGain3: 0
+  healthPoints: 400
+  attackDamage: 0
+  attackRange: 0
+  goldCost: 0
+  foodCost: 0
+  woodCost: 150
+  stoneCost: 50
+  metalCost: 0
+  goldGain: 0
+  foodGain: 0
+  woodGain: 0
+  stoneGain: 0
+  metalGain: 0
+  populationGain: 0
+  enemyAttackDistanceOffset: 0

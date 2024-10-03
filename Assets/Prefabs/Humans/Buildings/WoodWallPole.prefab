@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7951813084554598404}
   - component: {fileID: 5932033540455246181}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7951813084554598404
 Transform:
@@ -94,12 +94,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3741328806100874972}
   - component: {fileID: 1896206907009574750}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: selection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &3741328806100874972
 Transform:
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 857aba5e2514179499a09c25ae953ebf, type: 3}
-  m_Color: {r: 0.572307, g: 1, b: 0.18396229, a: 1}
+  m_Color: {r: 0.40784314, g: 0.78431374, b: 0.32156864, a: 0.23921569}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -185,7 +185,7 @@ GameObject:
   m_TagString: Vision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &881595984767251501
 Transform:
@@ -275,9 +275,6 @@ MonoBehaviour:
     m_Bits: 0
   visibleTargets:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   meshResolution: 16
   edgeResolveIterations: 1
   edgeDstThreshold: 0
@@ -297,16 +294,17 @@ GameObject:
   - component: {fileID: 7671215624643488452}
   - component: {fileID: 3540972041714341005}
   - component: {fileID: 6900158669015258784}
+  - component: {fileID: 2690700071455025551}
   - component: {fileID: 7855215612463930915}
   - component: {fileID: 7424637000350145941}
   - component: {fileID: 5171438458056445949}
   - component: {fileID: 7313278160857610674}
-  m_Layer: 0
-  m_Name: WoodWallPole
+  m_Layer: 11
+  m_Name: woodWallPole
   m_TagString: WallPole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5872270876359071469
 Transform:
@@ -325,7 +323,7 @@ Transform:
   - {fileID: 6589109573777771168}
   - {fileID: 881595984767251501}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7671215624643488452
 MeshFilter:
@@ -355,7 +353,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 46029988464473303, guid: a8ec95229a7b3f04b90990cdb39a5c02, type: 3}
+  - {fileID: 2100000, guid: 2983493ba41b27444b99bef3767b5003, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -390,14 +388,30 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6439357, y: 3.565737, z: 1.5998375}
-  m_Center: {x: -0.042479146, y: 1.747341, z: -0.045963895}
+  m_Size: {x: 0.7, y: 3.2128081, z: 0.7}
+  m_Center: {x: -0.02629161, y: 1.5708768, z: -0.0045577344}
+--- !u!208 &2690700071455025551
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2304780142775271329}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.35, y: 1.606404, z: 0.35}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -0.02629161, y: 1.570877, z: -0.004557734}
+  m_TimeToStationary: 0.5
 --- !u!114 &7855215612463930915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,18 +424,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b0aee560a427748aa3b1c0f811e960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 85f16c8319a31544082dd134c7b6d5ad, type: 2}
-  Placed: 0
+  dataLvl1: {fileID: 11400000, guid: 85f16c8319a31544082dd134c7b6d5ad, type: 2}
+  dataLvl2: {fileID: 0}
+  dataLvl3: {fileID: 0}
+  Placed: 1
+  Updating: 0
   area:
     m_Position: {x: 0, y: 0, z: 1}
     m_Size: {x: 1, y: 1, z: 1}
   selectionSquare: {fileID: 843101945882311212}
+  vision: {fileID: 1361588565333302515}
   selected: 0
+  buildingLevel: 0
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
   normalMat: {fileID: 2100000, guid: 2983493ba41b27444b99bef3767b5003, type: 2}
   onConstructionMat: {fileID: 2100000, guid: 5aa9bd1666451164da081faf3d888414, type: 2}
+  destroyPartycles: {fileID: 8786566605888118598, guid: 65cb094174cf5694dba05a9bcba15c74,
+    type: 3}
+  particleScale: {x: 1, y: 1, z: 1}
 --- !u!114 &7424637000350145941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8036d1c2592e70a4f95d6969007d0e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 0
   hpBar: {fileID: 5008463431331302990}
   hpBarSprite: {fileID: 698619621977503295}
   HP: 0
@@ -452,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingCanvas: {fileID: 2821880095133686399}
+  creating: 0
 --- !u!114 &7313278160857610674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f482f91337bdd42aef3420702dd8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallPrefab: {fileID: 2346866928740366559, guid: 9847a955fd5111c4ba6e2628f0f27d01,
+  WallPrefab: {fileID: 2346866928740366559, guid: 9847a955fd5111c4ba6e2628f0f27d01,
     type: 3}
 --- !u!1 &2486460360574144103
 GameObject:
@@ -476,12 +498,12 @@ GameObject:
   m_Component:
   - component: {fileID: 9170229685599834397}
   - component: {fileID: 698619621977503295}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9170229685599834397
 Transform:
@@ -560,12 +582,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6589109573777771168}
   - component: {fileID: 5063565087910476939}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &6589109573777771168
 Transform:
@@ -574,9 +596,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2821880095133686399}
-  m_LocalRotation: {x: -0.23919548, y: -0.3689422, z: 0.09885778, w: -0.89268935}
-  m_LocalPosition: {x: 0.039, y: 4.279, z: -0.161}
-  m_LocalScale: {x: 0.7041368, y: 0.8202988, z: 0.73971426}
+  m_LocalRotation: {x: 0.23911974, y: -0.36964357, z: 0.09904663, w: 0.89239854}
+  m_LocalPosition: {x: 0.28, y: 3.6, z: -0.18}
+  m_LocalScale: {x: 0.23553509, y: 0.8202988, z: 0.73971426}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4608758600657594262}
@@ -604,12 +626,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8122202568031100204}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &8122202568031100204
 Transform:
@@ -619,8 +641,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5008463431331302990}
   m_LocalRotation: {x: -0.23919548, y: -0.3689422, z: 0.09885778, w: -0.89268935}
-  m_LocalPosition: {x: 0, y: 4.44, z: 0}
-  m_LocalScale: {x: 2.9465246, y: 1.9370067, z: 2.4209146}
+  m_LocalPosition: {x: -0.016095, y: 4.4005, z: -0.016148}
+  m_LocalScale: {x: 2.0089405, y: 1.3206512, z: 1.6505796}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7951813084554598404}
@@ -640,12 +662,12 @@ GameObject:
   - component: {fileID: 1569331241209399336}
   - component: {fileID: 69905986943705905}
   - component: {fileID: 4722543589269077134}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1569331241209399336
 RectTransform:
@@ -714,12 +736,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6997601853334785764}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6997601853334785764
 RectTransform:
@@ -753,12 +775,12 @@ GameObject:
   - component: {fileID: 9099536435179873097}
   - component: {fileID: 3761771897224215259}
   - component: {fileID: 2454448679857938354}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &4608758600657594262
 RectTransform:
@@ -853,12 +875,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3391924385097566753}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &3391924385097566753
 RectTransform:
@@ -891,12 +913,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6433057107270932374}
   - component: {fileID: 1308353417408840809}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6433057107270932374
 Transform:
@@ -955,7 +977,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f61114915ce245c4f909829495b0c1aa, type: 3}
-  m_Color: {r: 0.101960786, g: 0.79607844, b: 0.8666667, a: 0.49803922}
+  m_Color: {r: 0, g: 0.4024674, b: 0.4433962, a: 0.49803922}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -975,12 +997,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7017155829080725469}
   - component: {fileID: 871846596199342098}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &7017155829080725469
 RectTransform:
@@ -1067,12 +1089,12 @@ GameObject:
   - component: {fileID: 6141444899155934172}
   - component: {fileID: 7009223501123353871}
   - component: {fileID: 4945964371163318071}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6141444899155934172
 RectTransform:

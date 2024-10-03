@@ -5,10 +5,16 @@ public class ToogleHealthBar : MonoBehaviour
 {
     private GameObject objectOnRay;
     private RaycastHit hitInfo;
+    private LayerMask layer;
+
+    private void Start()
+    {
+        layer = LayerMask.GetMask("Building", "Unit", "Enemy", "Ground");
+    }
 
     private void Update()
     {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, layer))
         {
             if (objectOnRay != null && objectOnRay != hitInfo.collider.gameObject)
             {

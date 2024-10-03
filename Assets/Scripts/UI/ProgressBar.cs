@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,10 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     public GameObject buildingCanvas;
+    [HideInInspector] public bool creating;
     
     private GameObject unitCanvas;
+    private GameObject upgradeCanvas;
     private float timer = 0;
     private bool ready = false;
     private UnitsCreation UC;
@@ -19,12 +22,14 @@ public class ProgressBar : MonoBehaviour
         UC = FindAnyObjectByType<UnitsCreation>();
         UIM = FindAnyObjectByType<UIManager>();
         unitCanvas = UIM.unitQueue;
+        upgradeCanvas = UIM.UpgradeQueuePanel;
     }
 
     private void Update()
     {
-        if (buildingCanvas.activeSelf)
-            buildingCanvas.transform.LookAt(buildingCanvas.transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
+        if (buildingCanvas != null)
+            if (buildingCanvas.activeSelf)
+                buildingCanvas.transform.LookAt(buildingCanvas.transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
     }
 
     public IEnumerator StartBuildingTimer(GameObject current, bool isLevelUp)
@@ -35,18 +40,18 @@ public class ProgressBar : MonoBehaviour
 
         if (!isLevelUp)
         {
-            StartCoroutine(Timer(building.data.timeToBuild, buildingCanvas));
+            StartCoroutine(Timer(building.dataLvl1.timeToBuild, buildingCanvas));
         } 
         else
         {
-            StartCoroutine(Timer(building.data.timeToUpdate, buildingCanvas));
+            StartCoroutine(Timer(building.dataLvl1.timeToUpdate, buildingCanvas));
         }
             
         yield return new WaitUntil(() => ready == true);
 
         if (!isLevelUp)
         {
-            building.Place();
+            building.ConstructionFinish();
         }
         else
         {
@@ -83,9 +88,26 @@ public class ProgressBar : MonoBehaviour
         timer = 0;
     }
 
+    public IEnumerator StartUpgradeTimer(float time, Action upgrade)
+    {
+        yield return new WaitUntil(() => upgradeCanvas);
+
+        StartCoroutine(Timer(time, upgradeCanvas));
+
+        yield return new WaitUntil(() => ready == true);
+
+        upgrade();
+        UIM.UpgradeQueuePanel.SetActive(false);
+
+        creating = false;
+        ready = false;
+    }
+
     IEnumerator Timer(float totalTime, GameObject canvas)
     {
         Slider slider = canvas.GetComponentInChildren<Slider>();
+        slider.value = 0;
+        timer = 0;
 
         while (true)
         {

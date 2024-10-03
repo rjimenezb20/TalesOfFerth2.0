@@ -3,32 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FogCoverable : MonoBehaviour {
+public class FogCoverable : MonoBehaviour
+{
 
-    Renderer renderer;
+    Renderer[] renderers;
 
-    void Start() {
+    void Start()
+    {
+        renderers = GetComponentsInChildren<Renderer>();
 
-        renderer = GetComponent<Renderer>();
-        renderer.enabled = false;
-        //FieldOfView.OnTargetsVisibilityChange += FieldOfViewOnTargetsVisibilityChange;
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
+
+        FieldOfView.OnTargetsVisibilityChange += FieldOfViewOnTargetsVisibilityChange;
     }
 
-    /*void OnDestroy() {
+    void OnDestroy()
+    {
 
         FieldOfView.OnTargetsVisibilityChange -= FieldOfViewOnTargetsVisibilityChange;
     }
 
-    void FieldOfViewOnTargetsVisibilityChange(List<Transform> newTargets) {
+    void FieldOfViewOnTargetsVisibilityChange(List<Transform> newTargets)
+    {
+        foreach (Renderer renderer in renderers)
+        {
+            if (!renderer.enabled)
+                renderer.enabled = newTargets.Contains(transform);
+        }
+    }
+}
 
-        renderer.enabled = newTargets.Contains(transform);
-    }*/
-
-    private void OnTriggerStay(Collider other) {
+/*private void OnTriggerStay(Collider other) {
 
         if (other.gameObject.tag == "Vision") {
 
-            renderer.enabled = true;
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = true;
+            }
         }
     }
 
@@ -36,8 +51,9 @@ public class FogCoverable : MonoBehaviour {
 
         if (other.gameObject.tag == "Vision") {
 
-            renderer.enabled = false;
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
         }
-    }
-
-}
+    }*/

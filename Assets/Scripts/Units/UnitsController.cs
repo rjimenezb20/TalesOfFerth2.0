@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using static UnityEngine.UI.CanvasScaler;
 
 public class UnitsController : MonoBehaviour
 {
@@ -39,7 +37,6 @@ public class UnitsController : MonoBehaviour
             if (agresiveMove)
                 if (Input.GetMouseButtonUp(0)) 
                 {
-                    Debug.Log("Entra");
                     AgressiveMoveOrder();
                     agresiveMove = false;
                     CC.ChangeToNormalCursor();
@@ -62,32 +59,28 @@ public class UnitsController : MonoBehaviour
                     {
                         unit.GetComponent<UnitAttack>().AttackOrder(raycastHit.transform.gameObject);
                     }
+                    CC.InstantiateClickFX(raycastHit.transform.position + new Vector3(0, 0.01f, 0), Color.red);
                 }
-                else //Move
+                else if (raycastHit.transform.CompareTag("Building") && raycastHit.transform.GetComponent<WatchTower>())
                 {
-                    if (raycastHit.transform.CompareTag("Building"))
+                    for (int i = 0; i < units.Count; i++)
                     {
-                        if (raycastHit.transform.GetComponent<WatchTower>())
-                        {
-                            foreach (Unit unit in units)
-                            {
-                                unit.GetComponent<UnitMovement>().MoveOrder(raycastHit.transform.position);
-                                unit.GetComponent<UnitMovement>().StartEnterTowerOrder(raycastHit.transform.gameObject);  
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (NavMesh.SamplePosition(raycastHit.point, out _, 100f, NavMesh.AllAreas))
-                        {
-                            if (units.Count == SC.GetSelectedUnits().Count)
-                            foreach (Unit unit in units)
-                            {
-                                unit.GetComponent<UnitMovement>().MoveOrder(raycastHit.point);
-                            }
-                        }
+                        units[i].GetComponent<UnitMovement>().MoveOrder(raycastHit.transform.position);
+                        if (units[i].data.unitName != "Soldier")
+                            units[i].GetComponent<UnitMovement>().StartEnterTowerOrder(raycastHit.transform.gameObject);
                     }
                 }
+                else if (NavMesh.SamplePosition(raycastHit.point, out _, 100f, NavMesh.AllAreas))
+                {
+                    if (units.Count == SC.GetSelectedUnits().Count)
+                    {
+                        foreach (Unit unit in units)
+                        {
+                            unit.GetComponent<UnitMovement>().MoveOrder(raycastHit.point);
+                        }
+                        CC.InstantiateClickFX(raycastHit.point + new Vector3(0, 0.01f, 0), Color.green);
+                    }
+                } 
             }
         }
     }

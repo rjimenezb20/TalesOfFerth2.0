@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,11 +22,11 @@ public class ResourcesController : MonoBehaviour
     public float stoneGainTime;
     public float metalGainTime;
 
-    private int gold = 1000;
-    private int food = 1000;
-    private int wood = 1000;
-    private int stone = 1000;
-    private int metal = 1000;
+    private int gold = 10000;
+    private int food = 10000;
+    private int wood = 10000;
+    private int stone = 10000;
+    private int metal = 10000;
     private int population = 0;
 
     private int goldGain;
@@ -126,22 +127,33 @@ public class ResourcesController : MonoBehaviour
         AddMaxPopulation(maxPopulation);
     }
 
-    public void SubstractResources(int gold, int food, int wood, int stone, int metal)
+    public void SubstractResources(int goldCost, int foodCost, int woodCost, int stoneCost, int metalCost, int populationCost)
     {
-        this.gold -= gold;
-        UpdateText(goldTxt, this.gold);
+        gold -= goldCost;
+        UpdateText(goldTxt, gold);
 
-        this.food -= food;
-        UpdateText(foodTxt, this.food);
+        food -= foodCost;
+        UpdateText(foodTxt, food);
 
-        this.wood -= wood;
-        UpdateText(woodTxt, this.wood);
+        wood -= woodCost;
+        UpdateText(woodTxt, wood);
 
-        this.stone -= stone;
-        UpdateText(stoneTxt, this.stone);
+        stone -= stoneCost;
+        UpdateText(stoneTxt, stone);
 
-        this.metal -= metal;
-        UpdateText(metalTxt, this.metal);
+        metal -= metalCost;
+        UpdateText(metalTxt, metal);
+
+        population += populationCost;
+        UpdateText(populationTxt, population);
+    }
+
+    public bool CheckIfEnoughResources(int goldCost, int foodCost, int woodCost, int stoneCost, int metalCost, int populationCost)
+    {
+        if (gold < goldCost || food < foodCost || wood < woodCost || stone < stoneCost || metal < metalCost || population + populationCost > maxPopulation)
+            return false;
+        else
+            return true;
     }
 
     public void AddPopulation(int population)

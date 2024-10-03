@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -6,10 +6,11 @@ using UnityEngine.Tilemaps;
 public class BuildingController : MonoBehaviour
 {
     public static BuildingController current;
+    public GridLayout gridLayout;
+    public GameObject warnings;
 
     [HideInInspector] public BoundsInt buildingArea;
-    public GridLayout gridLayout;
-    private Grid grid;
+    [HideInInspector] public bool buildingMode = false;
 
     [SerializeField] private Tilemap mainTilemap;
     [SerializeField] private Tilemap tempTilemap;
@@ -18,63 +19,90 @@ public class BuildingController : MonoBehaviour
     [SerializeField] private TileBase greentile;
     [SerializeField] private TileBase redtile;
 
-    private Building buildingToPlace;
     private GameObject buildingBackUp;
-    private BoundsInt prevArea;
+    private Building buildingToPlace;
     private UIManager UIM;
+    private BoundsInt prevArea;
     private static int groundLayer;
-    private bool buildingInstanciated = false;
-    private bool buildingMode = false;
+    private bool rotated = false;
     private SelectionController SC;
+    private ResourcesController RC;
+    private FogProjector FP;
 
     public void Awake()
     {
         current = this;
-        grid = gridLayout.gameObject.GetComponent<Grid>();
         groundLayer = LayerMask.GetMask("Ground");
-        UIM = FindObjectOfType<UIManager>();
-        SC = FindObjectOfType<SelectionController>();
+        UIM = FindAnyObjectByType<UIManager>();
+        SC = FindAnyObjectByType<SelectionController>();
+        RC = FindAnyObjectByType<ResourcesController>();
+        FP = FindAnyObjectByType<FogProjector>();
     }
 
-    public void Update()
+    public void LateUpdate()
     {
         if(buildingMode)
         {
             if (CanBePlaced()) //EFICIENCIA (?)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
-                    StartCoroutine(buildingToPlace.GetComponent<ProgressBar>().StartBuildingTimer(buildingToPlace.gameObject, false));
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(ray, out RaycastHit raycastHit, 1000f, groundLayer))
+                    {
+                        if (!FP.IsVisiblePosition(raycastHit.point))
+                        {
+                            if (RC.CheckIfEnoughResources(buildingToPlace.dataLvl1.goldCost, buildingToPlace.dataLvl1.foodCost, buildingToPlace.dataLvl1.woodCost, buildingToPlace.dataLvl1.stoneCost, buildingToPlace.dataLvl1.metalCost, 0))
+                            {
+                                buildingToPlace.OnPlace();
+                                buildingToPlace.ResourcesLostAndGains();
 
-                    if (buildingToPlace.data.buildingName == "Wall")
-                        buildingToPlace.GetComponent<Wall>().BuildWall();
+                                StartCoroutine(buildingToPlace.GetComponent<ProgressBar>().StartBuildingTimer(buildingToPlace.gameObject, false));
 
-                    buildingToPlace.SpendConstructionResources();
-                    buildingToPlace.ChangeMatToOnConstruction();
+                                ClearArea();
+                                TakeArea();
 
-                    ClearArea();
-                    TakeArea();
+                                buildingBackUp.transform.rotation = buildingToPlace.transform.rotation;
 
-                    buildingBackUp.transform.rotation = buildingToPlace.transform.rotation;
+                                buildingToPlace = null;
 
-                    buildingInstanciated = false;
-                    buildingToPlace = null;
+                                InstanciateObjectWithRotation(buildingBackUp, buildingBackUp.transform.rotation);
 
-                    InstanciateObjectWithRotation(buildingBackUp, buildingBackUp.transform.rotation);
+                                if (rotated)
+                                {
+                                    buildingToPlace.RotateTiles();
+                                    buildingToPlace.RotateBuilding(buildingBackUp.transform.rotation);
+                                }
+                            }
+                            else
+                            {
+                                warnings.GetComponent<Animation>().Play("ResourcesWarning");
+                            }
+                        }
+                        else
+                        {
+                            warnings.GetComponent<Animation>().Play("VisionWarning");
+                        }
+                    }
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-                buildingToPlace.Rotate();
+                buildingToPlace.RotateTiles();
+                buildingToPlace.RotateBuilding(buildingToPlace.transform.rotation * Quaternion.Euler(0, 90, 0));
+                
+                if (rotated)
+                    rotated = false;
+                else 
+                    rotated = true;
             }
 
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonUp(1))
             {
                 ClearArea();
                 Destroy(buildingToPlace.gameObject);
-                UIM.ShowHideQuantity(false);
-                buildingInstanciated = false;
+                UIM.ShowHideQuantity(false, 0);
                 buildingMode = false;
                 gridLayout.gameObject.SetActive(false);
             }
@@ -90,10 +118,12 @@ public class BuildingController : MonoBehaviour
 
     public void InstanciateObject(GameObject prefab)
     {
+        SC.ClearSelection();
+
         if (!buildingToPlace)
         {
             gridLayout.gameObject.SetActive(true);
-            GameObject obj = Instantiate(prefab, GetMouseWorldPositon(), Quaternion.identity);
+            GameObject obj = Instantiate(prefab, GetMouseWorldPositon(groundLayer).point, Quaternion.identity);
             buildingToPlace = obj.GetComponent<Building>();
             buildingBackUp = prefab;
             buildingMode = true;
@@ -105,18 +135,24 @@ public class BuildingController : MonoBehaviour
         if (!buildingToPlace)
         {
             gridLayout.gameObject.SetActive(true);
-            GameObject obj = Instantiate(prefab, GetMouseWorldPositon(), rotation);
+            GameObject obj = Instantiate(prefab, GetMouseWorldPositon(groundLayer).point, rotation);
             buildingToPlace = obj.GetComponent<Building>();
             buildingBackUp = prefab;
             buildingMode = true;
         }
     }
 
-    public void BuildingLevelUp()
+    public void BuildingLevelUp(GameObject button)
     {
-        SC.selectedBuilding.SpendConstructionResources();
-        StartCoroutine(SC.selectedBuilding.GetComponent<ProgressBar>().StartBuildingTimer(SC.selectedBuilding.gameObject, true));
-        SC.selectedBuilding.ChangeMatToOnConstruction();
+        if (SC.selectedBuilding.Updating == false)
+        {
+            button.gameObject.SetActive(false);
+            UIM.ButtonHoverExit();
+            SC.selectedBuilding.ResourcesLostAndGains();
+            StartCoroutine(SC.selectedBuilding.GetComponent<ProgressBar>().StartBuildingTimer(SC.selectedBuilding.gameObject, true));
+            SC.selectedBuilding.ChangeMatToOnConstruction();
+            SC.selectedBuilding.Updating = true;
+        }
     }
 
     private bool CanBePlaced()
@@ -125,10 +161,9 @@ public class BuildingController : MonoBehaviour
 
         bool canBePlaced = true;
 
-        buildingToPlace.area.position = gridLayout.WorldToCell(Vector3Int.RoundToInt(GetMouseWorldPositon())) - Vector3Int.RoundToInt(new Vector3(buildingToPlace.area.size.x / 2, buildingToPlace.area.size.y / 2, buildingToPlace.area.size.z / 2));
+        buildingToPlace.area.position = gridLayout.WorldToCell(Vector3Int.RoundToInt(GetMouseWorldPositon(groundLayer).point)) - Vector3Int.RoundToInt(new Vector3(buildingToPlace.area.size.x / 2, buildingToPlace.area.size.y / 2, buildingToPlace.area.size.z / 2));
         buildingArea = buildingToPlace.area;
-
-        buildingToPlace.gameObject.transform.position = gridLayout.CellToWorld(buildingToPlace.area.position) + gridLayout.CellToWorld(new Vector3Int(buildingToPlace.area.size.x, buildingToPlace.area.size.y, 0)) / 2 - new Vector3(0, gridLayout.CellToWorld(new Vector3Int(buildingToPlace.area.size.x, buildingToPlace.area.size.y, 0)).y, 0) / 2;
+        buildingToPlace.transform.position = gridLayout.CellToWorld(buildingToPlace.area.position) + gridLayout.CellToWorld(new Vector3Int(buildingToPlace.area.size.x, buildingToPlace.area.size.y, 0)) / 2 - new Vector3(0, gridLayout.CellToWorld(new Vector3Int(buildingToPlace.area.size.x, buildingToPlace.area.size.y, 0)).y, 0) / 2;
 
         TileBase[] baseArray = GetTilesBlock(buildingArea, mainTilemap);
 
@@ -169,16 +204,25 @@ public class BuildingController : MonoBehaviour
         mainTilemap.SetTilesBlock(buildingArea, tileArray);
     }
 
-    //Utils ---------------------------------------------------
-    public static Vector3 GetMouseWorldPositon()
+    public void TakeAreaBack(Building placedBuilding)
     {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit raycastHit, 1000f, groundLayer))
+        BoundsInt buildingArea = placedBuilding.area;
+        TileBase[] tileArray = GetTilesBlock(placedBuilding.area, mainTilemap);
+
+        FillTiles(tileArray, whitetile);
+        mainTilemap.SetTilesBlock(buildingArea, tileArray);
+    }
+
+    //Utils ---------------------------------------------------
+    public static RaycastHit GetMouseWorldPositon(LayerMask layer)
+    {
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit raycastHit, 1000f, layer))
         {
-            return raycastHit.point;
+            return raycastHit;
         }
         else
         {
-            return Vector3.zero;
+            return raycastHit;
         }
     }
 
@@ -201,5 +245,10 @@ public class BuildingController : MonoBehaviour
         {
             array[i] = type;
         }
+    }
+
+    public Building GetBuildingToPlace()
+    {
+        return buildingToPlace;
     }
 }

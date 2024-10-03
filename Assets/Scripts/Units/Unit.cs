@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
@@ -9,10 +7,14 @@ public class Unit : MonoBehaviour
     public UnitData data;
 
     private SelectionController SC;
+    private ObjectPool pool;
+    private Animator animator;
 
     void Start()
     {
-        SC = GameObject.FindGameObjectWithTag("GameController").GetComponent<SelectionController>();
+        animator = GetComponent<Animator>();
+        SC = FindAnyObjectByType<SelectionController>();
+        pool = FindAnyObjectByType<ObjectPool>();
     }
     
     void Update()
@@ -36,5 +38,28 @@ public class Unit : MonoBehaviour
             if (SelectionController.selection.Contains(camPos, true))
                 SC.AddSelectedUnit(this);
         }
+    }
+
+    public void Death()
+    {
+        SC.DeselectUnit(this);
+        Component[] components = GetComponents<Component>();
+
+        foreach (Component component in components)
+        {
+            if (component is Behaviour && !(component is Animator))
+            {
+                ((Behaviour)component).enabled = false;
+            }
+        }
+
+        GetComponent<CapsuleCollider>().enabled = false;
+
+        animator.CrossFade("Death", 0.1f);
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

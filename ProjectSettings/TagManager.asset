@@ -14,22 +14,25 @@ TagManager:
   - Vision
   - WallPole
   - Wall
+  - TownHall
+  - Mineral
+  - Stone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Fog
   - Water
   - UI
-  - 
-  - 
+  - Environment
+  - Post Processing
   - Unit
   - Ground
   - Enemy
   - Building
   - Resources
   - Vision
-  - 
+  - MiniMap
   - 
   - 
   - 

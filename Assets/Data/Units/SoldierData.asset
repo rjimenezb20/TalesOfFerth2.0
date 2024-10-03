@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2450c94e41cb0341b48472569774ac9, type: 3}
   m_Name: SoldierData
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 633a17af40baec349b353c0fa560a6c2, type: 3}
+  image: {fileID: 21300000, guid: 7d47add15d3212f4a85b86cc0153f83f, type: 3}
+  portrait: {fileID: 21300000, guid: a581eeb1dd8df474b9f9728d0b8b321c, type: 3}
   unitName: Soldier
   description: Melee Unit
   healthPoints: 200

@@ -15,39 +15,51 @@ public class SelectionController : MonoBehaviour
     private List<Unit> unitsSelected = new List<Unit>();
     private UIManager UI;
     private UnitsController UC;
+    private BuildingController BC;
     private Vector3 startClick = -Vector3.one;
+    private static int selectionLayer;
 
     private void Start()
     {
         UI = GetComponent<UIManager>();
         UC = GetComponent<UnitsController>();
+        BC = GetComponent<BuildingController>();
+        selectionLayer = LayerMask.GetMask("Building", "Unit", "Ground");
     }
 
     void Update()
     {
-        SelectionRectangle();
-        Select();
+        if (!BC.buildingMode)
+        {
+            SelectionRectangle();
+            Select();
+        }
 
         if (selectedBuilding != null)
         {
-            if (selectedBuilding.data.buildingName == "Barracks")
+            if (selectedBuilding.dataLvl1.buildingName == "Barracks")
             {
                 if (selectedBuilding.GetComponent<Barracks>().creating)
                     UI.ShowHideUnitQueue(true);
                 else
                     UI.ShowHideUnitQueue(false);
             }
-            else 
+            else if (selectedBuilding.dataLvl1.buildingName == "Smith")
             {
-                UI.ShowHideUnitQueue(false);
+                if (UI.UpgradeQueuePanel.GetComponentInParent<ProgressBar>().creating)
+                    UI.ShowHideUpgradeQueuePanel(true);
+                else
+                    UI.ShowHideUpgradeQueuePanel(false);
             }
         }
     }
 
     private void Select()
     {
+        //Tirar rayo solo cuando click y no todo el rato ??
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, 200f, selectionLayer))
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
@@ -58,8 +70,9 @@ public class SelectionController : MonoBehaviour
                         if (raycastHit.transform.tag == "Environment")
                         {
                             ClearSelection();
-                            UI.ShowUtilities(null);
+                            UI.ShowUtilities(null, null);
                             UI.ShowHideUnitQueue(false);
+                            UI.ShowHideUpgradeQueuePanel(false);
                         }
                     }
 
@@ -70,25 +83,25 @@ public class SelectionController : MonoBehaviour
                         if (raycastHit.transform.tag == "Unit")
                         {
                             AddSelectedUnit(raycastHit.transform.GetComponent<Unit>());
-                            UI.ShowUtilities(unitsSelected[0].data.unitName);
+                            UI.ShowUtilities(unitsSelected[0].data.unitName, null);
                             UI.ShowUnitInfo(unitsSelected[0]);
                         }
 
-                        if (raycastHit.transform.tag == "Building")
+                        if (raycastHit.transform.tag == "Building" || raycastHit.transform.tag == "TownHall")
                         {
                             selectedBuilding = raycastHit.transform.GetComponent<Building>();
 
                             if (selectedBuilding.Placed == true)
                             {
                                 selectedBuilding.SetSelected(true);
-                                UI.ShowUtilities(selectedBuilding.data.buildingName);
+                                UI.ShowUtilities(selectedBuilding.dataLvl1.buildingName, selectedBuilding);
                                 UI.ShowBuildingInfo(selectedBuilding);
                             }
                         }
                     }
                 }
             }
-        }          
+        }
     }
 
     private void SelectionRectangle()
@@ -154,7 +167,7 @@ public class SelectionController : MonoBehaviour
                 unit.SetSelected(true);
             }
     }
-    private void ClearSelection()
+    public void ClearSelection()
     {
         if(unitsSelected.Count > 0)
         {

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618c86918faa7a449bc73797e84997bd, type: 3}
+  m_Name: TowerLvl1Data
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 4548650d57ee6704c96af32242bf9c6f, type: 3}
+  buildingName: Tower
+  description: Shoot enemies.
+  timeToBuild: 6
+  timeToUpdate: 3
+  healthPoints: 200
+  attackDamage: 15
+  attackRange: 20
+  goldCost: 125
+  foodCost: 122
+  woodCost: 114
+  stoneCost: 152
+  metalCost: 100
+  goldGain: 0
+  foodGain: 0
+  woodGain: 0
+  stoneGain: 0
+  metalGain: 0
+  populationGain: 0
+  enemyAttackDistanceOffset: 0

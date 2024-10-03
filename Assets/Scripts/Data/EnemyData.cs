@@ -9,4 +9,5 @@ public class EnemyData : ScriptableObject
     [Header("Enemy")]
     public string unitName;
     public int healthPoints;
+    public int attackDamage;
 }

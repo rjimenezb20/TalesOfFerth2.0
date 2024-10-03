@@ -6,6 +6,7 @@ public class CursorChange : MonoBehaviour
 {
     public Texture2D normalCursor;
     public Texture2D attackCursor;
+    public GameObject clickFX;
 
     private SelectionController SC;
     private UnitsController UC;
@@ -43,13 +44,18 @@ public class CursorChange : MonoBehaviour
                 {
                     ChangeToAttackCursor();
                 } 
-                else if (!UC.agresiveMove)
+                else if (UC != null && !UC.agresiveMove)
                 {
                     ChangeToNormalCursor();
                 }
             }
-
             yield return null;
         }
     }
+
+    public void InstantiateClickFX(Vector3 pos ,Color color)
+    {
+        clickFX.GetComponent<SpriteRenderer>().color = color;
+        Instantiate(clickFX, pos, Quaternion.Euler(90, 0, 0));
+    } 
 }

@@ -1,12 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.UI.CanvasScaler;
+
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Menu")]
+    public GameObject inGameMenu;
+    public GameObject victoryPanel;
+    public GameObject losePanel;
+
     [Header("Utilities")]
     public GameObject utilities;
     public GameObject WatchTower;
@@ -16,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject Barracks;
     public GameObject Smith;
     public GameObject Mine;
+    public GameObject DestroyBuilding;
 
     [Header("Unit Info")]
     public Image Image;
@@ -30,14 +35,16 @@ public class UIManager : MonoBehaviour
 
     [Header("Quantity")]
     public GameObject quantity;
+    public GameObject quantityTreeIcon;
+    public GameObject quantityMineIcon;
     public Vector3 quantityPosition;
 
     [Header("Unit Queue")]
     public List<Image> unitQueueImgs;
 
     [Header("Creation Info")]
-    public GameObject creationInfo;
-    public Vector3 creationInfoOffset;
+    public GameObject creationInfoPanel;
+    public Vector3 creationInfoPanelOffset;
     public GameObject creationName;
     public GameObject creationDescription;
     public GameObject creationGoldCost;
@@ -51,9 +58,37 @@ public class UIManager : MonoBehaviour
     public GameObject creationRange;
     public Image creationImage;
 
+    [Header("Building Upgrades")]
+    [Space(10)]
+
+    public GameObject UpgradeQueuePanel;
+
+    [Header("House Upgrades")]
+    public GameObject LevelUpHouseBt;
+
+    [Header("Smith Upgrades")]
+    public GameObject Level2UpgradeBt;
+    public GameObject Level3UpgradeBt;
+
+    [Header("Barracks Upgrades")]
+    public GameObject LevelUpBarracksBt;
+
+    [Header("Tower Upgrades")]
+    public GameObject LevelUpTowerBt;
+
     private GameObject activeUtility;
     private Unit currentUnit;
     private Building currentBuilding;
+    private bool menuOpen = false;
+    private UpgradesController UC;
+    private SelectionController SC;
+    private bool gameEnd = false;
+
+    private void Start()
+    {
+        UC = GetComponent<UpgradesController>();
+        SC = FindAnyObjectByType<SelectionController>();
+    }
 
     private void Update()
     {
@@ -79,14 +114,24 @@ public class UIManager : MonoBehaviour
             
         if (quantity != null)
             quantity.transform.position = Input.mousePosition + quantityPosition;
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnd) {
+            OpenMenu();
+        }
     }
 
-    public void ShowUtilities(string name)
+    public void ShowUtilities(string name, Building building)
     {
         if (activeUtility != null)
-            activeUtility.SetActive(false); 
+        {
+            activeUtility.SetActive(false);
+            DestroyBuilding.SetActive(false);
+        }
 
         if (name != null)
+        {
+            DestroyBuilding.SetActive(true);
+
             if (name == "WatchTower")
             {
                 WatchTower.SetActive(true);
@@ -96,16 +141,32 @@ public class UIManager : MonoBehaviour
             {
                 Tower.SetActive(true);
                 activeUtility = Tower;
+
+                UpgradeButtonManage(building, Tower);
             }
             else if (name == "House")
             {
                 House.SetActive(true);
                 activeUtility = House;
+
+                UpgradeButtonManage(building, House);
             }
             else if (name == "Barracks")
             {
                 Barracks.SetActive(true);
                 activeUtility = Barracks;
+
+                if (UC.Level2Upgrade)
+                {
+                    Barracks.transform.GetChild(3).gameObject.SetActive(true);
+                }
+
+                if (UC.Level3Upgrade)
+                {
+                    Barracks.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                UpgradeButtonManage(building, Barracks);
             }
             else if (name == "Mine")
             {
@@ -122,6 +183,25 @@ public class UIManager : MonoBehaviour
                 Smith.SetActive(true);
                 activeUtility = Smith;
             }
+        }      
+    }
+
+    private void UpgradeButtonManage(Building building, GameObject activeUtility)
+    {
+        if (building.buildingLevel == 1 && UC.Level2Upgrade)
+        {
+            activeUtility.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else if (building.buildingLevel == 2 && UC.Level3Upgrade)
+        {
+            activeUtility.transform.GetChild(0).gameObject.SetActive(false);
+            activeUtility.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else
+        {
+            activeUtility.transform.GetChild(0).gameObject.SetActive(false);
+            activeUtility.transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 
     public void ShowUnitInfo(Unit unit)
@@ -129,7 +209,7 @@ public class UIManager : MonoBehaviour
         currentBuilding = null;
         currentUnit = unit;
 
-        Image.sprite = currentUnit.data.image;
+        Image.sprite = currentUnit.data.portrait;
         Name.text = currentUnit.data.unitName;
         Description.text = currentUnit.data.description;
         MaxHp.text = "/ " + currentUnit.data.healthPoints.ToString();
@@ -145,19 +225,26 @@ public class UIManager : MonoBehaviour
         currentBuilding = building;
         Health health = currentBuilding.GetComponent<Health>();
 
-        Image.sprite = currentBuilding.data.image;
-        Name.text = currentBuilding.data.buildingName;
-        Description.text = currentBuilding.data.description;
-        MaxHp.text = health.MaxHP.ToString();
+        Image.sprite = currentBuilding.dataLvl1.image;
+        Name.text = currentBuilding.dataLvl1.buildingName;
+        Description.text = currentBuilding.dataLvl1.description;
+        MaxHp.text = "/ " + health.MaxHP.ToString();
         Hp.text = health.HP.ToString();
-        Attack.text = "0";
-        Range.text = "0";
+        Attack.text = currentBuilding.dataLvl1.attackDamage.ToString();
+        Range.text = currentBuilding.dataLvl1.attackRange.ToString();
         slider.value = (float)health.HP / health.MaxHP;
     }
 
-    public void ShowHideQuantity(bool a)
+    public void ShowHideQuantity(bool a, int b)
     {
         quantity.SetActive(a);
+        quantityTreeIcon.SetActive(false);
+        quantityMineIcon.SetActive(false);
+
+        if (b == 0)
+            quantityTreeIcon.SetActive(a);
+        else if (b == 1)
+            quantityMineIcon.SetActive(a);
     }
 
     public void ShowHideUnitQueue(bool a)
@@ -165,61 +252,84 @@ public class UIManager : MonoBehaviour
         unitQueue.SetActive(a);
     }
 
+    public void UpdateUpgradeImage(Sprite image)
+    {
+        UpgradeQueuePanel.transform.Find("Current").GetComponent<Image>().sprite = image;
+    }
+
     public void UpdateUnitQueueImages(List<Unit> li)
     {
         foreach (Image img in unitQueueImgs)
         {
-            img.sprite = null;
+            Color color = img.color;
+            color.a = 0;
+            img.color = color;
         }
 
         for (int i = 0; i < li.Count; i++)
         {
             unitQueueImgs[i].sprite = li[i].data.image;
+
+            Color color = unitQueueImgs[i].color;
+            color.a = 1;
+            unitQueueImgs[i].color = color;
         }
     }
 
-    public void BuildingButtonHover(Building building)
+    public void BuildingButtonHover(BuildingData data)
     {
-        creationInfo.SetActive(true);
-        creationInfo.transform.position = Input.mousePosition + creationInfoOffset;
-        creationName.GetComponent<TextMeshProUGUI>().text = building.data.buildingName;
-        creationDescription.GetComponentInChildren<TextMeshProUGUI>().text = building.data.description;
+        creationInfoPanel.SetActive(true);
+        creationInfoPanel.transform.position = Input.mousePosition + creationInfoPanelOffset;
+        creationName.GetComponent<TextMeshProUGUI>().text = data.buildingName;
+        creationDescription.GetComponentInChildren<TextMeshProUGUI>().text = data.description;
 
-        if (building.data.goldCost1 == 0)
+        if (data.goldCost == 0)
             creationGoldCost.SetActive(false);
         else
-            creationGoldCost.GetComponentInChildren<TextMeshProUGUI>().text = building.data.goldCost1.ToString();
+            creationGoldCost.GetComponentInChildren<TextMeshProUGUI>().text = data.goldCost.ToString();
 
-        if (building.data.foodCost1 == 0)
+        if (data.foodCost == 0)
             creationFoodCost.SetActive(false);
         else
-            creationFoodCost.GetComponentInChildren<TextMeshProUGUI>().text = building.data.foodCost1.ToString();
+            creationFoodCost.GetComponentInChildren<TextMeshProUGUI>().text = data.foodCost.ToString();
 
-        if (building.data.woodCost1 == 0)
+        if (data.woodCost == 0)
             creationWoodCost.SetActive(false);
         else
-            creationWoodCost.GetComponentInChildren<TextMeshProUGUI>().text = building.data.woodCost1.ToString();
+            creationWoodCost.GetComponentInChildren<TextMeshProUGUI>().text = data.woodCost.ToString();
 
-        if (building.data.stoneCost1 == 0)
+        if (data.stoneCost == 0)
             creationStoneCost.SetActive(false);
         else
-            creationStoneCost.GetComponentInChildren<TextMeshProUGUI>().text = building.data.stoneCost1.ToString();
+            creationStoneCost.GetComponentInChildren<TextMeshProUGUI>().text = data.stoneCost.ToString();
 
-        if (building.data.metalCost1 == 0)
+        if (data.metalCost == 0)
             creationMetalCost.SetActive(false);
         else
-            creationMetalCost.GetComponentInChildren<TextMeshProUGUI>().text = building.data.metalCost1.ToString();
+            creationMetalCost.GetComponentInChildren<TextMeshProUGUI>().text = data.metalCost.ToString();
 
-        creationHealth.GetComponentInChildren<TextMeshProUGUI>().text = building.data.healthPoints1.ToString();
-        creationAttack.GetComponentInChildren<TextMeshProUGUI>().text = unit.data.attackDamage.ToString();
-        creationRange.GetComponentInChildren<TextMeshProUGUI>().text = building.data.buildingName;
-        creationImage.GetComponentInChildren<Image>().sprite = building.data.image;
+        if (data.buildingName == "Tower")
+        {
+            creationAttack.GetComponentInChildren<TextMeshProUGUI>().text = data.attackDamage.ToString();
+            creationRange.GetComponentInChildren<TextMeshProUGUI>().text = data.attackRange.ToString();
+            creationAttack.SetActive(true);
+            creationRange.SetActive(true);
+        } 
+        else
+        {
+            creationAttack.SetActive(false);
+            creationRange.SetActive(false);
+        }
+
+        creationHealth.SetActive(true);
+        creationHealth.GetComponentInChildren<TextMeshProUGUI>().text = data.healthPoints.ToString();
+        creationImage.GetComponentInChildren<Image>().sprite = data.image;
     }
 
     public void UnitButtonHover(Unit unit)
     {
-        creationInfo.SetActive(true);
-        creationInfo.transform.position = Input.mousePosition + creationInfoOffset;
+        creationInfoPanel.SetActive(true);
+        creationInfoPanel.transform.position = Input.mousePosition + creationInfoPanelOffset;
 
         creationName.GetComponent<TextMeshProUGUI>().text = unit.data.unitName;
         creationDescription.GetComponentInChildren<TextMeshProUGUI>().text = unit.data.description;
@@ -249,19 +359,119 @@ public class UIManager : MonoBehaviour
         else
             creationMetalCost.GetComponentInChildren<TextMeshProUGUI>().text = unit.data.metalCost.ToString();
 
+        creationHealth.SetActive(true);
         creationHealth.GetComponentInChildren<TextMeshProUGUI>().text = unit.data.healthPoints.ToString();
+        creationAttack.SetActive(true);
         creationAttack.GetComponentInChildren<TextMeshProUGUI>().text = unit.data.attackDamage.ToString();
+        creationRange.SetActive(true);
         creationRange.GetComponentInChildren<TextMeshProUGUI>().text = unit.data.attackRange.ToString();
         creationImage.GetComponentInChildren<Image>().sprite = unit.data.image;
     }
 
+    public void UpgradeButtonHover(UpgradeData data)
+    {
+        creationInfoPanel.SetActive(true);
+        creationInfoPanel.transform.position = Input.mousePosition + creationInfoPanelOffset;
+
+        creationName.GetComponent<TextMeshProUGUI>().text = data.upgradeName;
+        creationDescription.GetComponentInChildren<TextMeshProUGUI>().text = data.upgradeDescription;
+
+        if (data.goldCost == 0)
+            creationGoldCost.SetActive(false);
+        else
+            creationGoldCost.GetComponentInChildren<TextMeshProUGUI>().text = data.goldCost.ToString();
+
+        if (data.foodCost == 0)
+            creationFoodCost.SetActive(false);
+        else
+            creationFoodCost.GetComponentInChildren<TextMeshProUGUI>().text = data.foodCost.ToString();
+
+        if (data.woodCost == 0)
+            creationWoodCost.SetActive(false);
+        else
+            creationWoodCost.GetComponentInChildren<TextMeshProUGUI>().text = data.woodCost.ToString();
+
+        if (data.stoneCost == 0)
+            creationStoneCost.SetActive(false);
+        else
+            creationStoneCost.GetComponentInChildren<TextMeshProUGUI>().text = data.stoneCost.ToString();
+
+        if (data.metalCost == 0)
+            creationMetalCost.SetActive(false);
+        else
+            creationMetalCost.GetComponentInChildren<TextMeshProUGUI>().text = data.metalCost.ToString();
+
+        creationHealth.SetActive(false);
+    }
+
     public void ButtonHoverExit()
     {
-        creationInfo.SetActive(false);
+        creationInfoPanel.SetActive(false);
         creationGoldCost.SetActive(true);
         creationFoodCost.SetActive(true);
         creationWoodCost.SetActive(true);
         creationStoneCost.SetActive(true);
         creationMetalCost.SetActive(true);
+    }
+
+    public void OpenMenu()
+    {
+        if (menuOpen)
+        {
+            ResumeGame();
+            inGameMenu.SetActive(false);
+            return;
+        }
+
+        PauseGame();
+        inGameMenu.SetActive(true);
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+        menuOpen = true;
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        menuOpen = false;
+    }
+
+    public void ShowHideUpgradeQueuePanel(bool a)
+    {
+        UpgradeQueuePanel.SetActive(a);
+    }
+
+    public void Level2SmithUpgrade()
+    {
+        Level2UpgradeBt.SetActive(false);
+        Level3UpgradeBt.SetActive(true);
+    }
+
+    public void Level3SmithUpgrade()
+    {
+        Level3UpgradeBt.SetActive(false);
+    }
+
+    public void Win()
+    {
+        gameEnd = true;
+        inGameMenu.SetActive(true);
+        victoryPanel.SetActive(true);
+        inGameMenu.transform.GetChild(1).GetChild(0).GetChild(0).gameObject.SetActive(false);
+        inGameMenu.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.SetActive(false);
+        PauseGame();
+    }
+
+    public void Lose()
+    {
+        gameEnd = true;
+        inGameMenu.SetActive(true);
+        losePanel.SetActive(true);
+        inGameMenu.transform.GetChild(1).GetChild(0).GetChild(0).gameObject.SetActive(false);
+        inGameMenu.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.SetActive(false);
+        PauseGame();
     }
 }

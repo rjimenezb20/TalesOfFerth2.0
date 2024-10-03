@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float destroyTime;
     public GameObject hpBar;
     public SpriteRenderer hpBarSprite;
     [HideInInspector] public int HP;
@@ -27,11 +26,11 @@ public class Health : MonoBehaviour
             MaxHP = unit.data.healthPoints;
             HP = unit.data.healthPoints;
         }
-        else if (gameObject.tag == "Building")
+        else if (gameObject.tag == "Building" || gameObject.tag == "TownHall" || gameObject.tag == "WallPole")
         {
             Building building = gameObject.GetComponent<Building>();
-            MaxHP = building.data.healthPoints1;
-            HP = building.data.healthPoints1;
+            MaxHP = building.dataLvl1.healthPoints;
+            HP = building.dataLvl1.healthPoints;
         }
         
         mainCamera = Camera.main;
@@ -65,24 +64,36 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        GetComponent<Animator>().Play("Death");
+        if (gameObject.tag == "Enemy")
+        {
+            Enemy enemy = gameObject.GetComponent<Enemy>();
+            enemy.Death();
+        }
+        else if (gameObject.tag == "Unit")
+        {
+            Unit unit = gameObject.GetComponent<Unit>();
+            unit.Death();
+        }
+        else if (gameObject.tag == "Building" || gameObject.tag == "TownHall" || gameObject.tag == "WallPole")
+        {
+            Building building = gameObject.GetComponent<Building>();
+            building.Destroy();
+        }
     }
 
     private void UpdateHealBarSprite()
     {
-        hpBarSprite.transform.localScale = new Vector3(initialScale.x * HP / MaxHP, hpBarSprite.transform.localScale.y, hpBarSprite.transform.localScale.z);
-        hpBarSprite.transform.localPosition = new Vector3(-.85f + hpBarSprite.transform.localScale.x * 0.85f, hpBarSprite.transform.localPosition.y, hpBarSprite.transform.localPosition.z);
-    }
-
-    public void Destroy()
-    {
-        Destroy(this.gameObject, destroyTime);
+        if (hpBarSprite != null)
+        {
+            hpBarSprite.transform.localScale = new Vector3(initialScale.x * HP / MaxHP, hpBarSprite.transform.localScale.y, hpBarSprite.transform.localScale.z);
+            hpBarSprite.transform.localPosition = new Vector3(-.85f + hpBarSprite.transform.localScale.x * 0.85f, hpBarSprite.transform.localPosition.y, hpBarSprite.transform.localPosition.z);
+        }
     }
 
     IEnumerator a ()
     {
         yield return new WaitForSeconds(2);
-        ReceiveDamage(100);
+        ReceiveDamage(200);
         StartCoroutine(a());
     }
 }

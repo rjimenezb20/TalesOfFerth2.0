@@ -26,7 +26,6 @@ public class FieldOfView : MonoBehaviour
     public int edgeResolveIterations;
     public float edgeDstThreshold;
 
-
     public MeshFilter viewMeshFilter;
     public bool debug;
     Mesh viewMesh;
@@ -37,9 +36,14 @@ public class FieldOfView : MonoBehaviour
     public float updateDistance = 1;
     Vector3 lastUpdatePos;
 
-    void OnEnable() {
+    private void Start()
+    {
+        fogProjector.StartUpdateCorroutine();
+    }
 
-        viewMesh = new Mesh {name = "View Mesh"};
+    void OnEnable()
+    {
+        viewMesh = new Mesh { name = "View Mesh" };
         viewMeshFilter.mesh = viewMesh;
 
         fogProjector = fogProjector ?? FindObjectOfType<FogProjector>();
@@ -48,7 +52,6 @@ public class FieldOfView : MonoBehaviour
 
         fogProjector.UpdateFog();
     }
-
 
     IEnumerator FindTargetsWithDelay(float delay)
     {
@@ -59,10 +62,10 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    void LateUpdate() {
-
+    void LateUpdate()
+    {
         DrawFieldOfView();
-        if (Vector3.Distance(transform.position, lastUpdatePos) > updateDistance || Time.time<.5f)
+        if (Vector3.Distance(transform.position, lastUpdatePos) > updateDistance || Time.time < .5f)
         {
             lastUpdatePos = transform.position;
             fogProjector.UpdateFog();
@@ -167,7 +170,8 @@ public class FieldOfView : MonoBehaviour
             {
                 minAngle = angle;
                 minPoint = newObstacle.point;
-            } else
+            }
+            else
             {
                 maxAngle = angle;
                 maxPoint = newObstacle.point;

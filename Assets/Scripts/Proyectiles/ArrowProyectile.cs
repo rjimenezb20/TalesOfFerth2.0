@@ -55,10 +55,10 @@ public class ArrowProyectile : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPos) < damageRange)
         {
-            if (target != null)
+            if (target != null && target.GetComponent<Health>().enabled)
                 target.GetComponent<Health>().ReceiveDamage(attackDamage);
 
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }        
     }
 
@@ -68,10 +68,15 @@ public class ArrowProyectile : MonoBehaviour
         StartCoroutine(DestroyProyectile());
     }
 
+    public void SetDamage(int damage)
+    {
+        attackDamage = damage;
+    }
+
     IEnumerator DestroyProyectile()
     {
         yield return new WaitUntil(() => target == null);
         yield return new WaitForSeconds(destroyTime);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

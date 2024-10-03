@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 public class Sawmill : MonoBehaviour
@@ -8,13 +5,12 @@ public class Sawmill : MonoBehaviour
     public float detectionRadius;
 
     private int treesNumber = 0;
-    private bool placed = false;
     private SphereCollider detectionTrigger;
     private Building building;
 
     private void Awake()
     {
-        FindObjectOfType<UIManager>().ShowHideQuantity(true);
+        FindObjectOfType<UIManager>().ShowHideQuantity(true, 0);
     }
 
     void Start()

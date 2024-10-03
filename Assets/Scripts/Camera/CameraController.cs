@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
-
 public class CameraController : MonoBehaviour
 {
-
     private Camera MainCamera;
 
     [Header("MOVE")]
     public float CameraSpeed = .5f;
+    public float CameraSmooth = .5f;
+
+    [Header("LIMITS")]
+    public float minX;
+    public float minZ;
+    public float maxX;
+    public float maxZ;
+
 
     [Header("ZOOM")]
     public float ZoomSpeed = .5f;
@@ -26,49 +32,58 @@ public class CameraController : MonoBehaviour
 
     private void CameraMove()
     {
-        //Left
-        if(Input.mousePosition.x <= 5 || Input.GetKey("a"))
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 screenSize = new Vector3(Screen.width, Screen.height, 0);
+        Vector3 movement = Vector3.zero;
+
+        // Left
+        if (/*mousePosition.x < Boundaries ||*/ Input.GetKey("a"))
         {
-            MainCamera.transform.localPosition = MainCamera.transform.localPosition + new Vector3(-CameraSpeed / 2, 0, -CameraSpeed / 2);
+            movement.x -= CameraSpeed;
+            movement.z -= CameraSpeed;
         }
 
-        //Right
-        if (Input.mousePosition.x >= Screen.width - 5 || Input.GetKey("d"))
+        // Right
+        if (/*mousePosition.x > screenSize.x - Boundaries ||*/ Input.GetKey("d"))
         {
-            MainCamera.transform.localPosition = MainCamera.transform.localPosition + new Vector3(CameraSpeed / 2, 0, CameraSpeed / 2);
+            movement.x += CameraSpeed;
+            movement.z += CameraSpeed;
         }
 
-        //Up
-        if (Input.mousePosition.y >= Screen.height - 5 || Input.GetKey("w"))
+        // Up
+        if (/*mousePosition.y > screenSize.y - Boundaries ||*/ Input.GetKey("w"))
         {
-            MainCamera.transform.localPosition = MainCamera.transform.localPosition + new Vector3(-CameraSpeed, 0, CameraSpeed);
+            movement.x -= CameraSpeed;
+            movement.z += CameraSpeed;
         }
 
-        //Down
-        if (Input.mousePosition.y <= 50 || Input.GetKey("s"))
+        // Down
+        if (/*mousePosition.y < Boundaries ||*/ Input.GetKey("s"))
         {
-            MainCamera.transform.localPosition = MainCamera.transform.localPosition + new Vector3(CameraSpeed, 0, -CameraSpeed);
+            movement.x += CameraSpeed;
+            movement.z -= CameraSpeed;
         }
+
+        Vector3 desiredPosition = MainCamera.transform.localPosition + movement;
+
+        desiredPosition.x = Mathf.Clamp(desiredPosition.x, minX, maxX);
+        desiredPosition.z = Mathf.Clamp(desiredPosition.z, minZ, maxZ);
+
+        MainCamera.transform.localPosition = Vector3.Lerp(MainCamera.transform.localPosition, desiredPosition, CameraSmooth);
     }
 
     private void CameraZoom()
     {
-        //Forward 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll > 0f && MainCamera.orthographicSize - ZoomSpeed >= MaxZoom)
         {
-            if(MainCamera.orthographicSize - ZoomSpeed >= MaxZoom)
-            {
-                MainCamera.orthographicSize -= ZoomSpeed;
-            }
+            MainCamera.orthographicSize -= ZoomSpeed;
         }
 
-        //Backwards 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (scroll < 0f && MainCamera.orthographicSize + ZoomSpeed <= MinZoom)
         {
-            if (MainCamera.orthographicSize + ZoomSpeed <= MinZoom)
-            {
-                MainCamera.orthographicSize += ZoomSpeed;
-            }        
+            MainCamera.orthographicSize += ZoomSpeed;
         }
     }
 }

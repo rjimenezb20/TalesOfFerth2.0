@@ -29,45 +29,47 @@ public class WatchTower : MonoBehaviour
 
     public void GetUnitIn(GameObject unit)
     {
-        if (unitsIn.Count < 3) {
+        if (unitsIn.Count > 3) return;
 
-            unitsIn.Add(unit);
+        SC.DeselectUnit(unit.GetComponent<Unit>());
+        unitsIn.Add(unit);
 
-            unit.GetComponent<NavMeshAgent>().enabled = false;
-            unit.GetComponent<UnitMovement>().enabled = false;
-            unit.GetComponent<UnitMovement>().movingOrder = false;
-            unit.GetComponent<CapsuleCollider>().enabled = false;
-            unit.GetComponent<Unit>().enabled = false;
+        unit.GetComponent<NavMeshAgent>().enabled = false;
+        unit.GetComponent<UnitMovement>().enabled = false;
+        unit.GetComponent<UnitMovement>().movingOrder = false;
+        unit.GetComponent<CapsuleCollider>().enabled = false;
+        unit.GetComponent<Unit>().enabled = false;
 
-            int index = unitsIn.IndexOf(unit);
+        int index = unitsIn.IndexOf(unit);
 
-            switch(index)
-            {
-                case 0:
-                   unit.transform.position = unitSpot1.position;
-                   break;
-                case 1:
-                    unit.transform.position = unitSpot2.position;
-                    break;
-                case 2:
-                    unit.transform.position = unitSpot3.position;
-                    break;
-            }
-
-            SC.DeselectUnit(unit.GetComponent<Unit>());
-            unit.GetComponent<Animator>().Play("Idle");
-
-            UnitAttack unitAttack = unit.GetComponent<UnitAttack>();
-            unitAttack.attackDamage += Mathf.CeilToInt(unitAttack.attackDamage * DamageIncrease / 100);
-            unitAttack.attackRange += Mathf.CeilToInt(unitAttack.attackRange * RangeIncrease / 100);
-
-            AttackRangeSystem attackRange = unit.GetComponent<AttackRangeSystem>();
-            attackRange.detectionRadius = unitAttack.attackRange;
+        switch(index)
+        {
+            case 0:
+                unit.transform.position = unitSpot1.position;
+                break;
+            case 1:
+                unit.transform.position = unitSpot2.position;
+                break;
+            case 2:
+                unit.transform.position = unitSpot3.position;
+                break;
         }
+
+        unit.GetComponent<Animator>().Play("Idle");
+
+        UnitAttack unitAttack = unit.GetComponent<UnitAttack>();
+        unitAttack.attackDamage += Mathf.CeilToInt(unitAttack.attackDamage * DamageIncrease / 100);
+        unitAttack.attackRange += Mathf.CeilToInt(unitAttack.attackRange * RangeIncrease / 100);
+
+        AttackRangeSystem attackRange = unit.GetComponent<AttackRangeSystem>();
+        attackRange.detectionRadius = unitAttack.attackRange;
+        
     }
 
     public void UnitOut()
     {
+        if (unitsIn.Count < 1) return;
+
         unitsIn[0].GetComponent<NavMeshAgent>().enabled = true;
         unitsIn[0].GetComponent<UnitMovement>().enabled = true;
         unitsIn[0].GetComponent<UnitMovement>().movingOrder = true;

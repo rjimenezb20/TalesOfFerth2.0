@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2450c94e41cb0341b48472569774ac9, type: 3}
   m_Name: ArcherData
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 812d69436db4eb543bba59f715954b3c, type: 3}
+  image: {fileID: 21300000, guid: 0b29cbcdd137e3b45a7b1728eb0f740f, type: 3}
+  portrait: {fileID: 21300000, guid: 58b157762fd1d6c4586aba54566e2a47, type: 3}
   unitName: Archer
   description: Range Unit
   healthPoints: 100

@@ -1,16 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class UnitAttack : MonoBehaviour
 {
-    [HideInInspector] public bool attacking = false;
     public float attackRange = 5f;
     public float timeBetweenAttacks = 5f;
     public float rotationToEnemySpeed = 1f;
+
     [HideInInspector] public bool attackOrder = false;
     [HideInInspector] public Transform target;
     [HideInInspector] public int attackDamage;
@@ -34,27 +30,22 @@ public class UnitAttack : MonoBehaviour
     IEnumerator OnTargetBehavior()
     {
         while (true)
-        {   
-            if (!attackOrder)
+        {
+            if (!unitMovement.movingOrder)
             {
-                target = attackRangeSystem.SetTarget();
-            }
-            
-            if (target != null)
-            {
-                if (!unitMovement.movingOrder || attackOrder)
+                if (target != null && target.GetComponent<Health>().enabled)
                 {
                     if (CheckDistanceToEnemy(target) <= attackRange) //On attack range
                     {
-                        if (unitMovement.agent.enabled)
-                            if(!unitMovement.agent.isStopped)
-                                unitMovement.agent.isStopped = true;
+                        if (unitMovement.agent.enabled && !unitMovement.agent.isStopped)
+                            unitMovement.agent.isStopped = true;
 
+                        //Rotation to target
                         Vector3 directionToTarget = target.position - transform.position;
                         directionToTarget.y = 0;
                         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(directionToTarget), rotationToEnemySpeed / 100);
 
-                        //Atack timer
+                        //Attack timer (attack speed)
                         timer += Time.deltaTime % 60;
                         if (timer >= timeBetweenAttacks)
                         {
@@ -62,16 +53,17 @@ public class UnitAttack : MonoBehaviour
                             timer = 0;
                         }
                     }
-                    else //Out of attack range
+                    else //Out of range
                     {
                         ResetAttack();
-                        unitMovement.MoveToEnemy(target.transform.position);
+                        if (target != null)
+                            unitMovement.MoveToEnemy(target.transform.position);
                     }
                 }
-            }
-            else
-            {
-                attackOrder = false;
+                else
+                {
+                    target = attackRangeSystem.SetTarget();
+                }
             }
             yield return null;
         }
@@ -79,30 +71,27 @@ public class UnitAttack : MonoBehaviour
 
     public void AttackOrder(GameObject target)
     {
+        unitMovement.StopAllCoroutines();
         this.target = target.transform;
-        attackOrder = true;
+        unitMovement.movingOrder = false;
     }
-
-    private void Attack()
-    {   
-        animator.Play("Attack");
-    }
-
     public void DoDamage()
     {
-        target.GetComponent<Health>().ReceiveDamage(attackDamage);
+        if (target != null)
+            target.GetComponent<Health>().ReceiveDamage(attackDamage);
     }
-
     public void ResetTarget()
     {
         target = null;
     }
-
     public void ResetAttack()
     {
         timer = timeBetweenAttacks;
     }
-
+    private void Attack()
+    {
+        animator.CrossFade("Attack", 0.1f);
+    }
     private float CheckDistanceToEnemy(Transform enemy)
     {
         float distance = Vector3.Distance(transform.position, enemy.transform.position);

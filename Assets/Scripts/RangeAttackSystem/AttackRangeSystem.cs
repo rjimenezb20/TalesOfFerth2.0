@@ -5,28 +5,36 @@ using UnityEngine;
 public class AttackRangeSystem : MonoBehaviour
 {
     public float detectionRadius;
-    public string layerInteraction;
+    public LayerMask layerInteraction;
 
     private List<GameObject> enemiesOnRange;
     private Collider[] enemiesDetected = new Collider[20];
     private int enemiesNumber = 0;
     private Transform target;
-    private int enemyLayer;
 
     private void Awake()
     {
         enemiesOnRange = new List<GameObject>();
-        enemyLayer = LayerMask.GetMask(layerInteraction);
     }
 
     void Start()
     {
         StartCoroutine(CheckEnemiesOnRange());
+        InvokeRepeating(nameof(CheckEnemies), 0f, 0.1f);
     }
-    
-    void Update()
+
+    void CheckEnemies()
     {
-        enemiesNumber = Physics.OverlapSphereNonAlloc(transform.position, detectionRadius, enemiesDetected, enemyLayer);
+        enemiesNumber = Physics.OverlapSphereNonAlloc(transform.position, detectionRadius, enemiesDetected, layerInteraction);
+
+        enemiesOnRange.Clear(); 
+        for (int i = 0; i < enemiesNumber; i++)
+        {
+            if (enemiesDetected[i] != null)
+            {
+                enemiesOnRange.Add(enemiesDetected[i].gameObject);
+            }
+        }
     }
 
     IEnumerator CheckEnemiesOnRange()
@@ -40,38 +48,28 @@ public class AttackRangeSystem : MonoBehaviour
 
     private void UpdateEnemyList()
     {
-        if (enemiesNumber >= enemiesOnRange.Count)
-        {
-            for (int i = 0; i < enemiesDetected.Length; i++)
-            {
-                if (enemiesDetected[i] != null)
-                {
-                    GameObject enemy = enemiesDetected[i].gameObject;
+        HashSet<GameObject> currentEnemies = new HashSet<GameObject>();
 
-                    if (!enemiesOnRange.Contains(enemy))
-                        enemiesOnRange.Add(enemy);
-                }
-            }
-        }
-        else
+        for (int i = 0; i < enemiesNumber; i++)
         {
-            for (int i = enemiesOnRange.Count - 1; i >= 0; i--)
+            if (enemiesDetected[i] != null)
             {
-                if (enemiesOnRange[i] == null)
-                {
-                    enemiesOnRange.RemoveAt(i);
-                }
-                else if (CheckDistanceToEnemy(enemiesOnRange[i].transform) > detectionRadius)
-                {
-                    enemiesOnRange.Remove(enemiesOnRange[i]);
-                }
+                GameObject enemy = enemiesDetected[i].gameObject;
+
+                if (!enemiesOnRange.Contains(enemy))
+                    enemiesOnRange.Add(enemy);
+
+                currentEnemies.Add(enemy);
             }
         }
+
+        enemiesOnRange.RemoveAll(enemy => !currentEnemies.Contains(enemy) || CheckDistanceToEnemy(enemy.transform) > detectionRadius);
     }
 
     private Transform GetClosestEnemy()
     {
         float minDistance = detectionRadius;
+        Transform closestEnemy = null;
 
         foreach (GameObject enemy in enemiesOnRange)
         {
@@ -81,10 +79,16 @@ public class AttackRangeSystem : MonoBehaviour
                 if (distance < minDistance)
                 {
                     minDistance = distance;
-                    target = enemy.transform;
+                    closestEnemy = enemy.transform;
                 }
             }
         }
+
+        if (closestEnemy != null)
+        {
+            target = closestEnemy;
+        }
+
         return target;
     }
 
@@ -102,8 +106,13 @@ public class AttackRangeSystem : MonoBehaviour
         }
         else
         {
-            return GetClosestEnemy(); //EFICIENCIA?
+            return GetClosestEnemy();
         }
+    }
+
+    public void SetRange(int range)
+    {
+        detectionRadius = range;
     }
 
     private void OnDrawGizmosSelected()

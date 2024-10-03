@@ -7,6 +7,7 @@ public class UnitData : ScriptableObject
 {
     [Header("UI")]
     public Sprite image;
+    public Sprite portrait;
     public string unitName;
     public string description;
 

@@ -10,11 +10,12 @@ Shader "Projector/Fog Of War" {
 		_Color ("Color", Color) = (0,0,0,0)
 	}
 	Subshader {
-		Tags {"Queue"="Transparent"}
+		Tags {"Queue"="Overlay"}
 		Pass {
 			ZWrite Off
 			Blend DstColor Zero
 			Offset -1, -1
+			ZTest Always
 
 			CGPROGRAM
 			#pragma vertex vert

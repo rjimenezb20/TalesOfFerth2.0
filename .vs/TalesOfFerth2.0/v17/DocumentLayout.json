@@ -1,0 +1,785 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ProyectosUnity\\TalesOfFerth2.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\archer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\archer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\mage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\mage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\unitattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\unitattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\unitmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\unitmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\units\\unitscreation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\units\\unitscreation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\waves\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\waves\\sheltercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\sheltercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\waves\\wave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\wave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\waves\\wavescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\wavescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\ui\\progressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\progressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\ui\\daytimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\daytimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\ui\\cursorchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\cursorchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\ui\\buttonhover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\buttonhover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\ui\\buttonevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\buttonevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\tools\\unitspawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tools\\unitspawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\tools\\sceneloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tools\\sceneloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\tools\\map3dpaint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tools\\map3dpaint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\tools\\lookat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tools\\lookat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\tools\\destroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tools\\destroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\selection\\selectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\selection\\selectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\resources\\resourcescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resources\\resourcescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\rangeattacksystem\\attackrangesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rangeattacksystem\\attackrangesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\proyectiles\\magicproyectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\proyectiles\\magicproyectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\proyectiles\\arrowproyectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\proyectiles\\arrowproyectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\objectpool\\objectpool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\objectpool\\objectpool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\healthsystem\\tooglehealthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthsystem\\tooglehealthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\healthsystem\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthsystem\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\fogofwar\\solidify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fogofwar\\solidify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\fogofwar\\forceaspect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fogofwar\\forceaspect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\fogofwar\\fogprojector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fogofwar\\fogprojector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\fogofwar\\fogcoverable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fogofwar\\fogcoverable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\fogofwar\\fieldofview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fogofwar\\fieldofview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\data\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\data\\unitdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\unitdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\data\\enemydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\enemydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\data\\buildingdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\buildingdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\camera\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\buildingsystem\\upgradescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buildingsystem\\upgradescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\buildingsystem\\buildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buildingsystem\\buildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|d:\\proyectosunity\\talesofferth2.0\\assets\\scripts\\buildingsystem\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buildingsystem\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|D:\\ProyectosUnity\\TalesOfFerth2.0\\assets\\scripts\\audio\\optionsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4252C666-9137-CA89-EFC2-A7983D4E6E6D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\audio\\optionsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "WavesController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\WavesController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WavesController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\WavesController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Waves\\WavesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:14.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Wave.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\Wave.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\Wave.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\Wave.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Waves\\Wave.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:13.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShelterController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\ShelterController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\ShelterController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\ShelterController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Waves\\ShelterController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:13.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\EnemySpawner.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Waves\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Waves\\EnemySpawner.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:12.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UnitsCreation.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitsCreation.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\UnitsCreation.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitsCreation.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\UnitsCreation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:04.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UnitsController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitsController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\UnitsController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitsController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\UnitsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:04.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitMovement.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\UnitMovement.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\UnitMovement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:03.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UnitAttack.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\UnitAttack.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\UnitAttack.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\UnitAttack.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:03.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Unit.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\Unit.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\Unit.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\Unit.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\Unit.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:02.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Mage.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\Mage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\Mage.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\Mage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\Mage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:02.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Archer.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\Archer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Units\\Archer.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Units\\Archer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Units\\Archer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:20:01.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\UIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIManager.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\UIManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\UIManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:56.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProgressBar.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\ProgressBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\ProgressBar.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\ProgressBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\ProgressBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:56.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DayTimer.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\DayTimer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\DayTimer.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\DayTimer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\DayTimer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:55.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CursorChange.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\CursorChange.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\CursorChange.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\CursorChange.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\CursorChange.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:55.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ButtonHover.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\ButtonHover.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\ButtonHover.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\ButtonHover.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\ButtonHover.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:54.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ButtonEvents.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\ButtonEvents.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\ButtonEvents.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\UI\\ButtonEvents.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\ButtonEvents.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:54.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UnitSpawnPoint.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\UnitSpawnPoint.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tools\\UnitSpawnPoint.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\UnitSpawnPoint.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tools\\UnitSpawnPoint.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:49.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SceneLoader.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\SceneLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tools\\SceneLoader.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\SceneLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tools\\SceneLoader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:48.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Map3DPaint.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\Map3DPaint.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tools\\Map3DPaint.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\Map3DPaint.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tools\\Map3DPaint.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:47.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LookAt.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\LookAt.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tools\\LookAt.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\LookAt.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tools\\LookAt.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:47.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Destroy.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\Destroy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tools\\Destroy.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Tools\\Destroy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tools\\Destroy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:46.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SelectionController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Selection\\SelectionController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Selection\\SelectionController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Selection\\SelectionController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Selection\\SelectionController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:41.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ResourcesController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Resources\\ResourcesController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Resources\\ResourcesController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Resources\\ResourcesController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Resources\\ResourcesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:38.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AttackRangeSystem.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\RangeAttackSystem\\AttackRangeSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RangeAttackSystem\\AttackRangeSystem.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\RangeAttackSystem\\AttackRangeSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RangeAttackSystem\\AttackRangeSystem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:31.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MagicProyectile.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Proyectiles\\MagicProyectile.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Proyectiles\\MagicProyectile.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Proyectiles\\MagicProyectile.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Proyectiles\\MagicProyectile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:27.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ArrowProyectile.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Proyectiles\\ArrowProyectile.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Proyectiles\\ArrowProyectile.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Proyectiles\\ArrowProyectile.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Proyectiles\\ArrowProyectile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:27.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ObjectPool.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\ObjectPool\\ObjectPool.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ObjectPool\\ObjectPool.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\ObjectPool\\ObjectPool.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ObjectPool\\ObjectPool.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:22.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ToogleHealthBar.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\HealthSystem\\ToogleHealthBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthSystem\\ToogleHealthBar.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\HealthSystem\\ToogleHealthBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HealthSystem\\ToogleHealthBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:19.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Health.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\HealthSystem\\Health.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthSystem\\Health.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\HealthSystem\\Health.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HealthSystem\\Health.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:19.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Solidify.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\Solidify.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FogOfWar\\Solidify.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\Solidify.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FogOfWar\\Solidify.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:11.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ForceAspect.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\ForceAspect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FogOfWar\\ForceAspect.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\ForceAspect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FogOfWar\\ForceAspect.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:11.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "FogProjector.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\FogProjector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FogOfWar\\FogProjector.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\FogProjector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FogOfWar\\FogProjector.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:09.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "FogCoverable.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\FogCoverable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FogOfWar\\FogCoverable.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\FogCoverable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FogOfWar\\FogCoverable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:08.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "FieldOfView.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\FieldOfView.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FogOfWar\\FieldOfView.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\FogOfWar\\FieldOfView.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FogOfWar\\FieldOfView.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:07.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Enemies\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\Enemy.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Enemies\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\Enemy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:19:01.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "UpgradeData.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\UpgradeData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\UpgradeData.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\UpgradeData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\UpgradeData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:58.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "UnitData.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\UnitData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\UnitData.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\UnitData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\UnitData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:58.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "EnemyData.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\EnemyData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\EnemyData.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\EnemyData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\EnemyData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:57.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "BuildingData.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\BuildingData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\BuildingData.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Data\\BuildingData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\BuildingData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:57.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CameraController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Camera\\CameraController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Camera\\CameraController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:53.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "UpgradesController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\BuildingSystem\\UpgradesController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BuildingSystem\\UpgradesController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\BuildingSystem\\UpgradesController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BuildingSystem\\UpgradesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:49.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "BuildingController.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\BuildingSystem\\BuildingController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BuildingSystem\\BuildingController.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\BuildingSystem\\BuildingController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BuildingSystem\\BuildingController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:48.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Building.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\BuildingSystem\\Building.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BuildingSystem\\Building.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\BuildingSystem\\Building.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BuildingSystem\\Building.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:18:48.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "OptionsMenu.cs",
+              "DocumentMoniker": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Audio\\OptionsMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Audio\\OptionsMenu.cs",
+              "ToolTip": "D:\\ProyectosUnity\\TalesOfFerth2.0\\Assets\\Scripts\\Audio\\OptionsMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Audio\\OptionsMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T17:26:11.473Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 public class UnitMovement : MonoBehaviour
 {
@@ -26,28 +24,34 @@ public class UnitMovement : MonoBehaviour
     {
         StopAllCoroutines();
 
-        agent.SetDestination(position);
-        agent.isStopped = false;
-        animator.Play("Run");
+        if (agent != null)
+        {
+            agent.SetDestination(position);
+            agent.isStopped = false;
+        }
+            
+        animator.CrossFade("Run", 0.1f);
         movingOrder = true;
         enterTowerOrder = false;
-
         unitAttack.attackOrder = false;
         unitAttack.ResetAttack();
         unitAttack.ResetTarget();
 
         StartCoroutine(CheckDestination());
-        StartCoroutine(UnreachableDestination());
+        //StartCoroutine(UnreachableDestination());
     }
 
     public void MoveToEnemy (Vector3 position)
     {
         StopAllCoroutines();
 
-        enterTowerOrder = false;
-        agent.SetDestination(position);
-        agent.isStopped = false;
+        if (agent != null)
+        {
+            agent.SetDestination(position);
+            agent.isStopped = false;
+        }
         animator.Play("Run");
+        enterTowerOrder = false;
     }
 
     public void AgresiveMoveOrder(Vector3 position)
@@ -58,41 +62,41 @@ public class UnitMovement : MonoBehaviour
         agent.isStopped = false;
         unitAttack.attackOrder = true;
         enterTowerOrder = false;
-        animator.Play("Run");
+        animator.CrossFade("Run", 0.1f);
+
+        StartCoroutine(CheckDestination());
+        //StartCoroutine(UnreachableDestination());
     }
 
-    IEnumerator CheckDestination()
+    public IEnumerator CheckDestination()
     {
-        yield return new WaitUntil(() => agent.hasPath);
-        yield return new WaitUntil(() => agent.remainingDistance < .1f);
+        //yield return new WaitUntil(() => agent.hasPath);
+        yield return new WaitUntil(() => agent.hasPath && agent.remainingDistance < .1f);
         if (agent.hasPath)
         {
             agent.ResetPath();
-            animator.Play("Idle");
+            unitAttack.ResetTarget();
+            animator.CrossFade("Idle", 0.1f);
             moving = false;
             standing = true;
             movingOrder = false;
         }
-        unitAttack.ResetAttack();
     }
 
-    IEnumerator UnreachableDestination()
+    /*public IEnumerator UnreachableDestination()
     {
-        yield return new WaitUntil(() => agent.hasPath);
-        yield return new WaitUntil(() => agent.remainingDistance < 5);
+        yield return new WaitUntil(() => agent.hasPath && agent.remainingDistance < 5);
         yield return new WaitForSeconds(1);
 
-        if (agent.hasPath)
-        {
-            agent.ResetPath();
-            moving = false;
-            standing = true;
-            movingOrder = false;
-            yield return new WaitUntil(() => agent.velocity == Vector3.zero);
-            animator.Play("Idle");
-        }
-        unitAttack.ResetAttack();
-    }
+        agent.ResetPath();
+        moving = false;
+        standing = true;
+        movingOrder = false;
+        Debug.Log("Entra");
+        yield return new WaitUntil(() => agent.velocity == Vector3.zero);
+        animator.CrossFade("Idle", 0.1f);
+        movingOrder = false;
+    }*/
 
     IEnumerator EnterTowerOrder(WatchTower tower)
     {
@@ -116,9 +120,7 @@ public class UnitMovement : MonoBehaviour
         } 
 
         if (!enterTowerOrder)
-        {
             StopCoroutine(EnterTowerOrder(null));
-        }
     }
 
     public void StartEnterTowerOrder(GameObject tower)

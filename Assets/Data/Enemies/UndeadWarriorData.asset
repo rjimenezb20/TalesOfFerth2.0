@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: UndeadWarriorData
   m_EditorClassIdentifier: 
   unitName: UndeadWarrior
-  healthPoints: 1000
+  healthPoints: 50
+  attackDamage: 10

@@ -5,25 +5,37 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    public GameObject wallPrefab;
-    
-    private float rayLength = 1.5f;
+    public GameObject WallPrefab;
 
-    public void BuildWall()
+    private int layer;
+    private readonly float rayLength = 2f;
+
+    public void Awake()
     {
-        CheckClosePoles(CastRay(transform.forward), new Vector3(1.05f, 1.4f, 0), new Vector3(-90, 90, 0));
-        CheckClosePoles(CastRay(transform.right), new Vector3(0, 1.4f, 1.05f), new Vector3(-90, 0, 0));
-        CheckClosePoles(CastRay(-transform.forward), new Vector3(1.05f, 1.4f, 0), new Vector3(-90, 90, 0));
-        CheckClosePoles(CastRay(-transform.right), new Vector3(0, 1.4f, 1.05f), new Vector3(-90, 0, 0));
+        layer = LayerMask.GetMask("Building");
     }
 
-    public void CheckClosePoles(RaycastHit hit, Vector3 wallPos, Vector3 wallRot)
+    public IEnumerator BuildWall()
     {
-        if (hit.transform != null)
-            if (hit.transform.tag == "WallPole" && hit.transform.gameObject != gameObject)
-            {
-                Instantiate(wallPrefab, Vector3.Lerp(transform.position, hit.transform.position, 0.5f) + wallPos, Quaternion.Euler(wallRot), transform);
-            }
+        yield return new WaitForSeconds(0.05f);
+
+        CheckClosePoles(transform.forward);
+        CheckClosePoles(-transform.forward);
+        CheckClosePoles(transform.right);
+        CheckClosePoles(-transform.right);
+    }
+
+    public void CheckClosePoles(Vector3 direction)
+    {
+        RaycastHit hit = CastRay(direction);
+        if (hit.transform == null || hit.transform == transform) return;
+
+        if (hit.transform.CompareTag("WallPole"))
+        {
+            Vector3 wallPos = new Vector3(0, 1.4f, 0);
+            Vector3 wallRot = new Vector3(-90, transform.rotation.eulerAngles.y, direction == transform.right || direction == -transform.right ? 0 : 90);
+            Instantiate(WallPrefab, Vector3.Lerp(transform.position, hit.transform.position, 0.5f) + wallPos, Quaternion.Euler(wallRot), transform);
+        }
     }
 
     public void CheckCloseWallsToDestroy()
@@ -42,18 +54,12 @@ public class Wall : MonoBehaviour
     private RaycastHit CastRay(Vector3 direction)
     {
         Ray ray = new Ray(transform.position, direction);
-        RaycastHit hitInfo;
 
-        if (Physics.Raycast(ray, out hitInfo, rayLength))
+        if (Physics.Raycast(ray, out var hitInfo, rayLength, layer))
         {
-            Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
             return hitInfo;
         }
-        else
-        {
-            Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
-            return hitInfo;
-        }
+        return hitInfo;
     }
 
     private void OnDestroy()

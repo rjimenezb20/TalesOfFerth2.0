@@ -87,4 +87,43 @@ public class FogProjector : MonoBehaviour
             yield return null;
         }
     }
+    public bool IsVisiblePosition(Vector3 worldPosition)
+    {
+        Vector3 projectorPosition = transform.position;
+        Vector3 relativePosition = worldPosition - projectorPosition;
+
+        float projectorSize = projector.orthographicSize * 2;
+        float xCoord = (relativePosition.x + projectorSize / 2) / projectorSize;
+        float zCoord = (relativePosition.z + projectorSize / 2) / projectorSize;
+
+        int texX = Mathf.RoundToInt(xCoord * fogTexture.width);
+        int texY = Mathf.RoundToInt(zCoord * fogTexture.height);
+
+        if (texX < 0 || texX >= fogTexture.width || texY < 0 || texY >= fogTexture.height)
+        {
+            return false;
+        }
+
+        RenderTexture.active = fogTexture;
+        Texture2D tempTexture = new Texture2D(fogTexture.width, fogTexture.height, TextureFormat.RGB24, false);
+        tempTexture.ReadPixels(new Rect(0, 0, fogTexture.width, fogTexture.height), 0, 0);
+        tempTexture.Apply();
+        RenderTexture.active = null;
+
+        Color pixelColor = tempTexture.GetPixel(texX, texY);
+        Destroy(tempTexture);
+
+        return pixelColor.r > 0.5f;
+    }
+
+    public void StartUpdateCorroutine()
+    {
+        StartCoroutine(LateUpdateFog());
+    }
+
+    IEnumerator LateUpdateFog()
+    {
+        yield return new WaitForSeconds(0.3f);
+        UpdateFog();
+    }
 }
